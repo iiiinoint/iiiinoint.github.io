@@ -21,7 +21,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://noint.top/tags/test/index.html">
+<meta property="og:url" content="http://noint.top/categories/Computer-Science/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Noint">
@@ -430,26 +430,25 @@
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2023/10/11/hello-world/">
+            <a class="abstract-title" href="/2023/10/17/Hazards-in-Pipelined-CPU/">
                 
-                    <span class="iconfont-archer stick-top">&#xe63d;</span>
-                
-                <span class="abstract-title-text">Hello World</span>
+                <span class="abstract-title-text">Hazards in Pipelined CPU</span>
             </a>
             <div class="abstract-content">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+                <h1 id="Pipelined-hazards"><a href="#Pipelined-hazards" class="headerlink" title="Pipelined hazards"></a>Pipelined hazards</h1><p>在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类：</p>
+<h2 id="一、数据冲突（Data-Hazards）"><a href="#一、数据冲突（Data-Hazards）" class="headerlink" title="一、数据冲突（Data Hazards）"></a>一、数据冲突（Data Hazards）</h2><p>数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。</p>
+<ul>
+<li>**Read After Write (RAW)**：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器<code>R1</code>写入数据，而第二条指令需要从<code>R1</code>读取数据。</li>
+</ul>
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>数据前推（Data Forwarding）或者暂停（Stalling）。</p>
+<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png" alt="截屏2023-10-17 11.01.05"></p>
+<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png" alt="截屏2023-10-17 11.03.06"></p>
+<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png" alt="截屏2023-10-17 11.04.16"></p>
             </div>
             <!-- read more -->
             
                 <div class="abstract-read-more-button">
-                    <a href="/2023/10/11/hello-world/">
+                    <a href="/2023/10/17/Hazards-in-Pipelined-CPU/">
                         <span style="margin-right: 0.2rem;">READ ARTICLE</span>
                         <i class="fas fa-angle-right"></i>
                     </a>
@@ -457,8 +456,8 @@
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2023/10/11">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/11</span>
+                <div class="abstract-date" title="Last updated: 2023/10/17">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/17</span>
                 </div>
                 <!-- tags -->
                 
@@ -468,16 +467,18 @@
         
             
         
+            
         
-        <span class="post-category" data-categories="test"">
+        
+        <span class="post-category" data-categories="Computer Science/Computer Organization and Design"">
             <i class="fas fa-folder post-category-icon"></i>
             <span class="post-category-text">
-                test
+                Computer Science/Computer Organization and Design
             </span>
         </span>
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="test">test</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Computer Science">Computer Science</a>
     
 </div>
 

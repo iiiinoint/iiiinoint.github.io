@@ -430,18 +430,25 @@
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2023/10/11/Print-A-Photo/">
+            <a class="abstract-title" href="/2023/10/17/Hazards-in-Pipelined-CPU/">
                 
-                <span class="abstract-title-text">Print A Photo</span>
+                <span class="abstract-title-text">Hazards in Pipelined CPU</span>
             </a>
             <div class="abstract-content">
-                <p><img src="/2023/10/11/Print-A-Photo/1.jpg" alt="1"></p>
-
+                <h1 id="Pipelined-hazards"><a href="#Pipelined-hazards" class="headerlink" title="Pipelined hazards"></a>Pipelined hazards</h1><p>在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类：</p>
+<h2 id="一、数据冲突（Data-Hazards）"><a href="#一、数据冲突（Data-Hazards）" class="headerlink" title="一、数据冲突（Data Hazards）"></a>一、数据冲突（Data Hazards）</h2><p>数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。</p>
+<ul>
+<li>**Read After Write (RAW)**：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器<code>R1</code>写入数据，而第二条指令需要从<code>R1</code>读取数据。</li>
+</ul>
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>数据前推（Data Forwarding）或者暂停（Stalling）。</p>
+<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png" alt="截屏2023-10-17 11.01.05"></p>
+<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png" alt="截屏2023-10-17 11.03.06"></p>
+<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png" alt="截屏2023-10-17 11.04.16"></p>
             </div>
             <!-- read more -->
             
                 <div class="abstract-read-more-button">
-                    <a href="/2023/10/11/Print-A-Photo/">
+                    <a href="/2023/10/17/Hazards-in-Pipelined-CPU/">
                         <span style="margin-right: 0.2rem;">READ ARTICLE</span>
                         <i class="fas fa-angle-right"></i>
                     </a>
@@ -449,43 +456,8 @@
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2023/10/11">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/11</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2023/10/11/start/">
-                
-                <span class="abstract-title-text">start</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="Give-a-shoot"><a href="#Give-a-shoot" class="headerlink" title="Give a shoot"></a>Give a shoot</h2>
-            </div>
-            <!-- read more -->
-            
-                <div class="abstract-read-more-button">
-                    <a href="/2023/10/11/start/">
-                        <span style="margin-right: 0.2rem;">READ ARTICLE</span>
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </div>
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2023/10/11">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/11</span>
+                <div class="abstract-date" title="Last updated: 2023/10/17">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/17</span>
                 </div>
                 <!-- tags -->
                 
@@ -495,16 +467,18 @@
         
             
         
+            
         
-        <span class="post-category" data-categories="test"">
+        
+        <span class="post-category" data-categories="Computer Science/Computer Organization and Design"">
             <i class="fas fa-folder post-category-icon"></i>
             <span class="post-category-text">
-                test
+                Computer Science/Computer Organization and Design
             </span>
         </span>
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="test">test</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Computer Science">Computer Science</a>
     
 </div>
 
@@ -695,18 +669,7 @@
         
         
         
-        
-        
-        
-        
-        
     
-        
-        
-        
-        
-        
-        
         
         
     
@@ -715,7 +678,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 3
+        Total : 2
         </div>
         <!-- search  -->
         
@@ -731,14 +694,8 @@
             
         
         <li class="archive-post-item">
-            <span class="archive-post-date">10/11</span>
-            <a class="archive-post-title" href="/2023/10/11/Print-A-Photo/">Print A Photo</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/11</span>
-            <a class="archive-post-title" href="/2023/10/11/start/">start</a>
+            <span class="archive-post-date">10/17</span>
+            <a class="archive-post-title" href="/2023/10/17/Hazards-in-Pipelined-CPU/">Hazards in Pipelined CPU</a>
         </li>
     
         
@@ -752,6 +709,11 @@
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="Computer Science">
+                <span class="iconfont-archer">&#xe606;</span>
+                Computer Science
+            </span>
         
             <span class="sidebar-tag-name" data-tags="test">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -769,9 +731,19 @@
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="Computer Science">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Computer Science
+        </span>
+    
         <span class="sidebar-category-name" data-categories="test">
             <span class="iconfont-archer">&#xe60a;</span>
             test
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Computer Organization and Design">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Computer Organization and Design
         </span>
     
     </div>
