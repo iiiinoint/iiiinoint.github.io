@@ -427,6 +427,7 @@
         
         
             
+            
         
         <article class="index-post">
             <a class="abstract-title" href="/2023/12/01/ChatGPT%E6%98%AF%E6%80%8E%E4%B9%88%E7%82%BC%E6%88%90%E7%9A%84/">
@@ -436,9 +437,35 @@
                 <span class="abstract-title-text">ChatGPT是怎么炼成的</span>
             </a>
             <div class="abstract-content">
-                
+                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在人工智能领域，ChatGPT的出现标志着一个新时代的开始。作为一个基于大规模语言模型的聊天机器人，ChatGPT不仅改变了人们与技术的交互方式，还推动了AI技术的边界。本文旨在探讨ChatGPT的主要原理、发展历史，以及它可能对社会产生的影响和带来的新研究问题。</p>
+<p>好的，让我们更细致地探讨ChatGPT的主要原理。</p>
+<hr>
+<h2 id="ChatGPT的主要原理"><a href="#ChatGPT的主要原理" class="headerlink" title="ChatGPT的主要原理"></a>ChatGPT的主要原理</h2><p>ChatGPT的核心基于GPT（Generative Pre-trained Transformer）架构，这是一种革命性的自然语言处理技术。要理解ChatGPT的工作原理，我们需要从以下几个方面来深入探讨：</p>
+<h3 id="Transformer架构"><a href="#Transformer架构" class="headerlink" title="Transformer架构"></a>Transformer架构</h3><p>Transformer是一种专为处理序列数据而设计的深度学习模型架构。它在2017年由Google的研究者提出，并迅速成为自然语言处理领域的标准。Transformer的核心特点是其使用了自注意力（Self-Attention）机制。这个机制使模型能够在处理一个单词时，同时考虑到句子中的其他单词，从而更好地理解上下文。</p>
+<blockquote>
+<h4 id="自注意力机制的数学原理"><a href="#自注意力机制的数学原理" class="headerlink" title="自注意力机制的数学原理"></a>自注意力机制的数学原理</h4><ol>
+<li><strong>输入表示</strong>：Transformer接收一系列向量作为输入，这些向量通常是输入序列中每个元素（如单词）的嵌入表示。</li>
+<li><strong>查询、键和值</strong>：自注意力机制涉及三组权重矩阵——查询（Q）、键（K）和值（V）。这些矩阵是通过训练学习得到的。对于每个输入向量，模型使用这些权重矩阵分别计算查询、键和值。</li>
+<li><strong>注意力分数</strong>：模型计算查询和所有键之间的点积，以得出注意力分数。这个分数决定了在生成输出时应该给予每个值多少权重。</li>
+<li><strong>缩放点积注意力</strong>：为了避免在计算点积时数值过大，会将注意力分数除以键的维度的平方根，然后应用softmax函数来标准化分数。</li>
+<li><strong>输出计算</strong>：最后，这些分数与值相乘，然后相加，生成最终的输出向量。</li>
+</ol>
+<h4 id="层归一化和位置编码"><a href="#层归一化和位置编码" class="headerlink" title="层归一化和位置编码"></a>层归一化和位置编码</h4><p>除了自注意力机制，Transformer还使用了层归一化（Layer Normalization）和位置编码（Positional Encoding）来进一步提升性能。</p>
+<ul>
+<li><strong>层归一化</strong>：这是一种标准化技术，用于稳定深度神经网络的训练过程。</li>
+<li><strong>位置编码</strong>：由于Transformer本身不处理序列的顺序信息，位置编码被加入到输入嵌入中，以提供序列中各元素的位置信息。</li>
+</ul>
+</blockquote>
+<h3 id="预训练和微调"><a href="#预训练和微调" class="headerlink" title="预训练和微调"></a>预训练和微调</h3>
             </div>
             <!-- read more -->
+            
+                <div class="abstract-read-more-button">
+                    <a href="/2023/12/01/ChatGPT%E6%98%AF%E6%80%8E%E4%B9%88%E7%82%BC%E6%88%90%E7%9A%84/">
+                        <span style="margin-right: 0.2rem;">READ ARTICLE</span>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </div>
             
             <div class="abstract-post-meta">
                 <!-- date -->
@@ -729,26 +756,6 @@
                 </div>
                 <!-- tags -->
                 
-                    <div class= abstract-tags >
-    
-        
-        
-            
-        
-        
-        <span class="post-category" data-categories="test"">
-            <i class="fas fa-folder post-category-icon"></i>
-            <span class="post-category-text">
-                test
-            </span>
-        </span>
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="test">test</a>
-    
-</div>
-
-                
             </div>
         </article>
         <div class="index-post-divider"></div>
@@ -954,11 +961,6 @@
                 Computer Science
             </span>
         
-            <span class="sidebar-tag-name" data-tags="test">
-                <span class="iconfont-archer">&#xe606;</span>
-                test
-            </span>
-        
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -983,11 +985,6 @@
         <span class="sidebar-category-name" data-categories="Computer Organization and Design">
             <span class="iconfont-archer">&#xe60a;</span>
             Computer Organization and Design
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="test">
-            <span class="iconfont-archer">&#xe60a;</span>
-            test
         </span>
     
     </div>
