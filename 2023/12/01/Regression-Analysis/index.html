@@ -19,29 +19,23 @@
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类： 一、数据冲突（Data Hazards）数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。  Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器R1写入数据，而第二条指令需要从R1读取数据。  解决方法：数据前推">
+    <meta name="description" content="理解回归分析：原理与应用引言在人工智能和统计学领域，回归分析是一种核心技术，它用于揭示变量之间的关系、预测未来数据点，以及在实际应用中的数据驱动决策。本文将深入探讨回归分析的基本原理、数学基础以及其在现实世界的应用。 1. 回归分析简介回归分析是一种统计方法，用于研究一个或多个自变量（解释变量）与因变量（响应变量）之间的关系。它的目标是找到一个数学模型，能够最佳地描述这种依赖关系。 2. 常见回归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hazards in Pipelined CPU">
-<meta property="og:url" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/index.html">
+<meta property="og:title" content="Regression Analysis">
+<meta property="og:url" content="http://noint.top/2023/12/01/Regression-Analysis/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类： 一、数据冲突（Data Hazards）数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。  Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器R1写入数据，而第二条指令需要从R1读取数据。  解决方法：数据前推">
+<meta property="og:description" content="理解回归分析：原理与应用引言在人工智能和统计学领域，回归分析是一种核心技术，它用于揭示变量之间的关系、预测未来数据点，以及在实际应用中的数据驱动决策。本文将深入探讨回归分析的基本原理、数学基础以及其在现实世界的应用。 1. 回归分析简介回归分析是一种统计方法，用于研究一个或多个自变量（解释变量）与因变量（响应变量）之间的关系。它的目标是找到一个数学模型，能够最佳地描述这种依赖关系。 2. 常见回归">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo1.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo2.png">
-<meta property="article:published_time" content="2023-10-17T02:42:18.000Z">
-<meta property="article:modified_time" content="2024-01-23T14:49:39.759Z">
+<meta property="article:published_time" content="2023-12-01T14:39:54.000Z">
+<meta property="article:modified_time" content="2024-01-23T15:11:35.985Z">
 <meta property="article:author" content="Noint">
-<meta property="article:tag" content="Computer Science">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/cat.ico">
     
-    <title>Hazards in Pipelined CPU · Noint&#39;s Studio</title>
+    <title>Regression Analysis · Noint&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -267,7 +261,7 @@
                 <a href="/">Noint&#39;s Studio.</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">Hazards in Pipelined CPU</a>
+                <a href="#" class="post-name">Regression Analysis</a>
             </div>
         </div>
     
@@ -313,7 +307,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                Hazards in Pipelined CPU
+                Regression Analysis
             <!-- 404 -->
             
         </h1>
@@ -336,18 +330,16 @@
         
             
         
-            
         
-        
-        <span class="post-category" data-categories="Computer Science/Computer Organization and Design"">
+        <span class="post-category" data-categories="Machine Learning"">
             <i class="fas fa-folder post-category-icon"></i>
             <span class="post-category-text">
-                Computer Science/Computer Organization and Design
+                Machine Learning
             </span>
         </span>
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Computer Science">Computer Science</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Machine Learning">Machine Learning</a>
     
 </div>
 
@@ -355,13 +347,13 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">819</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">746</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2023/10/17</span>
+                    <span class="post-intro-time">2023/12/01</span>
                     <!-- busuanzi -->
                     
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
@@ -516,56 +508,21 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <p>在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类：</p>
-<h2 id="一、数据冲突（Data-Hazards）"><a href="#一、数据冲突（Data-Hazards）" class="headerlink" title="一、数据冲突（Data Hazards）"></a>一、数据冲突（Data Hazards）</h2><p>数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。</p>
-<ul>
-<li>Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器<code>R1</code>写入数据，而第二条指令需要从<code>R1</code>读取数据。</li>
-</ul>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>数据前推（Data Forwarding）或者暂停（Stalling）。</p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png" alt="截屏2023-10-17 11.01.05"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png" alt="截屏2023-10-17 11.03.06"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png" alt="截屏2023-10-17 11.04.16"></p>
-<h2 id="二、控制冲突（Control-Hazards）"><a href="#二、控制冲突（Control-Hazards）" class="headerlink" title="二、控制冲突（Control Hazards）"></a>二、控制冲突（Control Hazards）</h2><p>控制冲突发生在分支指令处，因为在分支指令的目标地址计算完成之前，后续要执行的指令是不确定的。</p>
-<ul>
-<li><strong>Branch prediction</strong>：通过预测分支的结果，可以尝试解决这种冲突。</li>
-</ul>
-<h3 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h3><p>分支预测（Branch Prediction），分支目标缓冲器（BTB，Branch Target Buffer）等。</p>
-<p>分支预测是解决控制冲突（Control Hazards）中的一种常用技术。当CPU遇到一个分支指令（例如，<code>if</code>，<code>while</code>，<code>for</code>等）时，它需要确定是跳转到新的地址还是继续按照原有的指令顺序执行。分支预测的任务就是预测这个决定，从而允许CPU在不等待分支指令实际执行完成的情况下继续填充和执行流水线。</p>
-<blockquote>
-<p> <strong>常见的分支预测方法：</strong></p>
-<ol>
-<li><strong>静态分支预测</strong>：不依赖于程序的运行时行为。例如，始终预测分支为“Taken”（会跳转）或“Not Taken”（不会跳转）。</li>
-<li><strong>动态分支预测</strong>：<ul>
-<li><strong>一位动态预测器</strong>：使用一位（0或1）来记录最近一次分支的结果。</li>
-<li><strong>两位饱和计数器</strong>：使用两位来更精确地记录分支的历史行为。</li>
-<li><strong>分支目标缓冲区（BTB）</strong>：存储分支指令的目标地址。</li>
-<li><strong>局部和全局预测器</strong>：使用局部和全局的历史信息来进行更准确的预测。</li>
-</ul>
-</li>
-<li><strong>混合分支预测器</strong>：结合多种预测方法，选择最有可能准确的一个。</li>
-</ol>
-</blockquote>
-<h2 id="三、结构冲突（Structural-Hazards）"><a href="#三、结构冲突（Structural-Hazards）" class="headerlink" title="三、结构冲突（Structural Hazards）"></a>三、结构冲突（Structural Hazards）</h2><p>当多个指令需要使用同一硬件资源时，就会发生结构冲突。</p>
-<ul>
-<li>例如，如果有一个指令在访问数据存储器（Data Memory）以加载数据，同时另一个指令也需要访问数据存储器以存储数据，那么就会出现结构冲突。</li>
-</ul>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo1.png" alt="截屏2023-10-17 10.52.40"></p>
-<h3 id="解决方法：-2"><a href="#解决方法：-2" class="headerlink" title="解决方法："></a>解决方法：</h3><p>可以通过硬件复制或时间多路复用等方法来解决。</p>
-<h4 id="多次访问内存"><a href="#多次访问内存" class="headerlink" title="多次访问内存"></a>多次访问内存</h4><ul>
-<li>解决方案包括分割指令和数据内存、使用多个内存端口或指令缓冲器。</li>
-<li>需要通过提高内存带宽（至少5倍）来改善性能。</li>
-</ul>
-<h4 id="多次访问寄存器文件"><a href="#多次访问寄存器文件" class="headerlink" title="多次访问寄存器文件"></a>多次访问寄存器文件</h4><ul>
-<li>双倍增速（Double Bump）：通过增加寄存器文件的访问速度或并行度来解决。</li>
-</ul>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo2.png" alt="截屏2023-10-17 10.55.34"></p>
-<h4 id="非全流水线功能单元"><a href="#非全流水线功能单元" class="headerlink" title="非全流水线功能单元"></a>非全流水线功能单元</h4><ul>
-<li>解决方案包括将功能单元全流水线化。</li>
-<li>使用多个功能单元进行操作。</li>
-</ul>
-<h4 id="实际机器常常存在结构冲突"><a href="#实际机器常常存在结构冲突" class="headerlink" title="实际机器常常存在结构冲突"></a>实际机器常常存在结构冲突</h4><ul>
-<li>在现实世界的机器中，结构冲突是一个普遍存在的问题，需要综合考虑多种策略来进行优化。</li>
-</ul>
+        <h1 id="理解回归分析：原理与应用"><a href="#理解回归分析：原理与应用" class="headerlink" title="理解回归分析：原理与应用"></a>理解回归分析：原理与应用</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在人工智能和统计学领域，回归分析是一种核心技术，它用于揭示变量之间的关系、预测未来数据点，以及在实际应用中的数据驱动决策。本文将深入探讨回归分析的基本原理、数学基础以及其在现实世界的应用。</p>
+<h2 id="1-回归分析简介"><a href="#1-回归分析简介" class="headerlink" title="1. 回归分析简介"></a>1. 回归分析简介</h2><p>回归分析是一种统计方法，用于研究一个或多个自变量（解释变量）与因变量（响应变量）之间的关系。它的目标是找到一个数学模型，能够最佳地描述这种依赖关系。</p>
+<h2 id="2-常见回归类型"><a href="#2-常见回归类型" class="headerlink" title="2. 常见回归类型"></a>2. 常见回归类型</h2><h3 id="1-线性回归"><a href="#1-线性回归" class="headerlink" title="1. 线性回归"></a>1. 线性回归</h3><p>线性回归是最基本的回归形式，其模型假设因变量 <code>y</code> 和自变量 <code>x</code> 之间存在线性关系，可以表示为：</p>
+<p>$$<br>y &#x3D; \beta_0 + \beta_1x + \epsilon<br>$$</p>
+<p>其中，$\beta_0$ 是截距，$\beta_1$ 是斜率，而 $\epsilon$ 是误差项。线性回归的核心在于找出这些系数的最佳估计，通常通过最小化残差平方和（RSS）来实现。</p>
+<h3 id="2-多项式回归"><a href="#2-多项式回归" class="headerlink" title="2. 多项式回归"></a>2. 多项式回归</h3><p>多项式回归是线性回归的扩展，允许自变量的高次项。这使得模型可以拟合更复杂的数据。公式如下：</p>
+<p>$$<br>y &#x3D; \beta_0 + \beta_1x + \beta_2x^2 + … + \beta_nx^n + \epsilon<br>$$</p>
+<h3 id="3-逻辑回归"><a href="#3-逻辑回归" class="headerlink" title="3. 逻辑回归"></a>3. 逻辑回归</h3><p>尽管名为“回归”，逻辑回归实际上是一种分类技术。它预测的是特定类别的概率，通常用于二分类问题。模型使用逻辑函数将线性回归的输出转换为概率：</p>
+<p>$$<br>p &#x3D; \frac{1}{1 + e^{-(\beta_0 + \beta_1x)}}<br>$$</p>
+<h2 id="3-损失函数与优化"><a href="#3-损失函数与优化" class="headerlink" title="3. 损失函数与优化"></a>3. 损失函数与优化</h2><p>回归分析中的关键任务是找到最佳拟合参数。这通过最小化损失函数实现，如线性回归中的均方误差（MSE）：</p>
+<p>$$<br>MSE &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n}(y_i - \hat{y}_i)^2<br>$$</p>
+<p>其中，$y_i$是实际值，$\hat{y}_i$ 是预测值。优化这些参数通常使用梯度下降或正规方程方法。</p>
+<h2 id="4-回归分析的挑战"><a href="#4-回归分析的挑战" class="headerlink" title="4. 回归分析的挑战"></a>4. 回归分析的挑战</h2><p>尽管回归分析是一种强大的工具，但在使用时也存在一些挑战，如多重共线性、过拟合、非线性关系等。解决这些问题需要技巧和经验，例如使用岭回归或套索回归来减少过拟合风险。</p>
+<h2 id="5-应用实例"><a href="#5-应用实例" class="headerlink" title="5. 应用实例"></a>5. 应用实例</h2><p>在实际应用中，回归分析被广泛用于经济学、生物统计学、环境科学等领域。例如，在金融领域，回归模型常用于风险评估和市场趋势预测。</p>
+<h2 id="6-结论"><a href="#6-结论" class="headerlink" title="6. 结论"></a>6. 结论</h2><p>回归分析是连接理论与实践的桥梁，它不仅揭示了数据背后的隐藏模式，还为决策提供了量化的基础。通过理解其数学原理和学习如何在实际情况中应用，我们能够更有效地解释复杂数据并做出更明智的决策。</p>
 
     </article>
     <!-- license -->
@@ -574,17 +531,12 @@
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2023/11/11/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E7%9A%84%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%88%86%E6%9E%90/" title="不同高级语言内存管理机制的汇编语言分析">
-                    <div class="nextTitle">不同高级语言内存管理机制的汇编语言分析</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2023/10/11/hello-world/" title="Hello World">
-                    <div class="prevTitle">Hello World</div>
+                <a href="/2023/12/01/ChatGPT%E6%98%AF%E6%80%8E%E4%B9%88%E7%82%BC%E6%88%90%E7%9A%84/" title="ChatGPT是怎么炼成的">
+                    <div class="prevTitle">ChatGPT是怎么炼成的</div>
                 </a>
             
         </li>
@@ -619,6 +571,21 @@
     <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
     
     <!-- Mathjax -->
+    
+        
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+
+
     
 </main>
 
@@ -729,7 +696,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E5%86%B2%E7%AA%81%EF%BC%88Data-Hazards%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、数据冲突（Data Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8E%A7%E5%88%B6%E5%86%B2%E7%AA%81%EF%BC%88Control-Hazards%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、控制冲突（Control Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A-1"><span class="toc-number">2.1.</span> <span class="toc-text">解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BB%93%E6%9E%84%E5%86%B2%E7%AA%81%EF%BC%88Structural-Hazards%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">三、结构冲突（Structural Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A-2"><span class="toc-number">3.1.</span> <span class="toc-text">解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E8%AE%BF%E9%97%AE%E5%86%85%E5%AD%98"><span class="toc-number">3.1.1.</span> <span class="toc-text">多次访问内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E8%AE%BF%E9%97%AE%E5%AF%84%E5%AD%98%E5%99%A8%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.2.</span> <span class="toc-text">多次访问寄存器文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E5%85%A8%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%8A%9F%E8%83%BD%E5%8D%95%E5%85%83"><span class="toc-number">3.1.3.</span> <span class="toc-text">非全流水线功能单元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E5%B8%B8%E5%B8%B8%E5%AD%98%E5%9C%A8%E7%BB%93%E6%9E%84%E5%86%B2%E7%AA%81"><span class="toc-number">3.1.4.</span> <span class="toc-text">实际机器常常存在结构冲突</span></a></li></ol></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%EF%BC%9A%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">理解回归分析：原理与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.</span> <span class="toc-text">1. 回归分析简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B8%B8%E8%A7%81%E5%9B%9E%E5%BD%92%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">2. 常见回归类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%9B%9E%E5%BD%92"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 多项式回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 逻辑回归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">3. 损失函数与优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-number">1.5.</span> <span class="toc-text">4. 回归分析的挑战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.6.</span> <span class="toc-text">5. 应用实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E7%BB%93%E8%AE%BA"><span class="toc-number">1.7.</span> <span class="toc-text">6. 结论</span></a></li></ol></li></ol>
             </div>
         
         <!-- sidebar -->
