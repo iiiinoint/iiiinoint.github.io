@@ -592,11 +592,17 @@
                 <span class="abstract-title-text">Regression Analysis</span>
             </a>
             <div class="abstract-content">
-                <h1 id="理解回归分析：原理与应用"><a href="#理解回归分析：原理与应用" class="headerlink" title="理解回归分析：原理与应用"></a>理解回归分析：原理与应用</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在人工智能和统计学领域，回归分析是一种核心技术，它用于揭示变量之间的关系、预测未来数据点，以及在实际应用中的数据驱动决策。本文将深入探讨回归分析的基本原理、数学基础以及其在现实世界的应用。</p>
-<h2 id="1-回归分析简介"><a href="#1-回归分析简介" class="headerlink" title="1. 回归分析简介"></a>1. 回归分析简介</h2><p>回归分析是一种统计方法，用于研究一个或多个自变量（解释变量）与因变量（响应变量）之间的关系。它的目标是找到一个数学模型，能够最佳地描述这种依赖关系。</p>
-<h2 id="2-常见回归类型"><a href="#2-常见回归类型" class="headerlink" title="2. 常见回归类型"></a>2. 常见回归类型</h2><h3 id="1-线性回归"><a href="#1-线性回归" class="headerlink" title="1. 线性回归"></a>1. 线性回归</h3><p>线性回归是最基本的回归形式，其模型假设因变量 <code>y</code> 和自变量 <code>x</code> 之间存在线性关系，可以表示为：</p>
+                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在人工智能和统计学领域，回归分析是一种核心技术，它用于揭示变量之间的关系、预测未来数据点，以及在实际应用中的数据驱动决策。本文将深入探讨回归分析的基本原理、数学基础以及其在现实世界的应用。</p>
+<h2 id="一-回归分析简介"><a href="#一-回归分析简介" class="headerlink" title="一. 回归分析简介"></a>一. 回归分析简介</h2><p>回归分析是一种统计方法，用于研究一个或多个自变量（解释变量）与因变量（响应变量）之间的关系。它的目标是找到一个数学模型，能够最佳地描述这种依赖关系。</p>
+<h2 id="二-常见回归类型"><a href="#二-常见回归类型" class="headerlink" title="二. 常见回归类型"></a>二. 常见回归类型</h2><h3 id="1-线性回归"><a href="#1-线性回归" class="headerlink" title="1. 线性回归"></a>1. 线性回归</h3><p>线性回归是最基本的回归形式，其模型假设因变量 <code>y</code> 和自变量 <code>x</code> 之间存在线性关系，可以表示为：</p>
 <p>$$<br>y &#x3D; \beta_0 + \beta_1x + \epsilon<br>$$</p>
 <p>其中，$\beta_0$ 是截距，$\beta_1$ 是斜率，而 $\epsilon$ 是误差项。线性回归的核心在于找出这些系数的最佳估计，通常通过最小化残差平方和（RSS）来实现。</p>
+<blockquote>
+<ul>
+<li><strong>均方误差 (MSE)</strong>: 这是线性回归中最常用的损失函数。它计算了预测值与实际值之间差的平方的平均值。公式为：$MSE &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n}(y_i - \hat{y}_i)^2$，其中 $y_i$ 是实际值，$\hat{y}_i$ 是预测值。</li>
+<li><strong>绝对误差 (MAE)</strong>: MAE 是另一种常见的损失函数，它计算预测值与实际值之间差的绝对值的平均。公式为：$MAE &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} |y_i - \hat{y}_i|$。</li>
+</ul>
+</blockquote>
             </div>
             <!-- read more -->
             
