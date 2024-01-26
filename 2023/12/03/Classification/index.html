@@ -19,15 +19,15 @@
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="梯度下降（Gradient Descent）是一种常用于机器学习和深度学习中的优化算法，用于最小化一个函数。这个函数通常被称为“代价函数”或“损失函数”，它衡量了模型预测值与实际值之间的差距。梯度下降的核心思想是，通过迭代的方式逐步调整参数以找到使代价函数最小化的参数值。 数学推理为了理解梯度下降，我们首先需要理解“梯度”的概念。在多变量微积分中，一个函数在某一点的梯度由该点处的偏导数构成，它指向">
+    <meta name="description" content="引言在人工智能和统计学领域，分类分析是一种关键技术，用于识别和预测数据所属的类别。与回归分析主要处理连续变量不同，分类处理的是离散的输出标签。本文旨在探讨分类的基本概念、算法以及在现实世界的应用。 一. 分类分析简介分类分析是一种监督学习方法，旨在基于一组输入变量预测离散的输出变量（类别标签）。其目标是从数据中学习一个模型，能够准确地将新数据点分类到特定的类别中。 二. 常见分类算法1. 决策树决">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gradient Descent">
-<meta property="og:url" content="http://noint.top/2023/12/02/Gradient-Descent/index.html">
+<meta property="og:title" content="Classification">
+<meta property="og:url" content="http://noint.top/2023/12/03/Classification/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="梯度下降（Gradient Descent）是一种常用于机器学习和深度学习中的优化算法，用于最小化一个函数。这个函数通常被称为“代价函数”或“损失函数”，它衡量了模型预测值与实际值之间的差距。梯度下降的核心思想是，通过迭代的方式逐步调整参数以找到使代价函数最小化的参数值。 数学推理为了理解梯度下降，我们首先需要理解“梯度”的概念。在多变量微积分中，一个函数在某一点的梯度由该点处的偏导数构成，它指向">
+<meta property="og:description" content="引言在人工智能和统计学领域，分类分析是一种关键技术，用于识别和预测数据所属的类别。与回归分析主要处理连续变量不同，分类处理的是离散的输出标签。本文旨在探讨分类的基本概念、算法以及在现实世界的应用。 一. 分类分析简介分类分析是一种监督学习方法，旨在基于一组输入变量预测离散的输出变量（类别标签）。其目标是从数据中学习一个模型，能够准确地将新数据点分类到特定的类别中。 二. 常见分类算法1. 决策树决">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-12-02T05:23:41.000Z">
-<meta property="article:modified_time" content="2024-01-24T03:27:04.866Z">
+<meta property="article:published_time" content="2023-12-03T14:38:32.000Z">
+<meta property="article:modified_time" content="2024-01-26T14:39:25.773Z">
 <meta property="article:author" content="Noint">
 <meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
@@ -35,7 +35,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/cat.ico">
     
-    <title>Gradient Descent · Noint&#39;s Studio</title>
+    <title>Classification · Noint&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -261,7 +261,7 @@
                 <a href="/">Noint&#39;s Studio.</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">Gradient Descent</a>
+                <a href="#" class="post-name">Classification</a>
             </div>
         </div>
     
@@ -307,7 +307,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                Gradient Descent
+                Classification
             <!-- 404 -->
             
         </h1>
@@ -347,13 +347,13 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">678</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">921</span>Reading time: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2023/12/02</span>
+                    <span class="post-intro-time">2023/12/03</span>
                     <!-- busuanzi -->
                     
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
@@ -508,29 +508,23 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <p>梯度下降（Gradient Descent）是一种常用于机器学习和深度学习中的优化算法，用于最小化一个函数。这个函数通常被称为“代价函数”或“损失函数”，它衡量了模型预测值与实际值之间的差距。梯度下降的核心思想是，通过迭代的方式逐步调整参数以找到使代价函数最小化的参数值。</p>
-<h3 id="数学推理"><a href="#数学推理" class="headerlink" title="数学推理"></a>数学推理</h3><p>为了理解梯度下降，我们首先需要理解“梯度”的概念。在多变量微积分中，一个函数在某一点的梯度由该点处的偏导数构成，它指向该函数增长最快的方向。因此，梯度的反方向就是函数下降最快的方向。</p>
-<p>假设我们有一个代价函数 $ J(\theta) $，其中 $\theta $是模型的参数。我们的目标是找到使 $ J(\theta) $最小的$\theta $值。梯度下降算法会执行以下步骤：</p>
-<ol>
-<li>随机初始化参数 $\theta $。</li>
-<li>计算代价函数 $ J(\theta) $ 在当前 $\theta $ 下的梯度 $ \nabla J(\theta) $。</li>
-<li>更新 $\theta $，使其沿着梯度的反方向移动：$ \theta :&#x3D; \theta - \alpha \nabla J(\theta) $，其中 $\alpha $ 是学习率，控制步长大小。</li>
-<li>重复步骤2和3，直到达到收敛条件（例如，梯度的大小足够小或迭代次数达到某个阈值）。</li>
-</ol>
-<h3 id="推理过程"><a href="#推理过程" class="headerlink" title="推理过程"></a>推理过程</h3><p>以一个简单的线性回归模型为例，假设我们有一个代价函数 $J(\theta) &#x3D; \frac{1}{2m} \sum_{i&#x3D;1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2 $，其中 $h_\theta(x) &#x3D; \theta^T x $是我们的假设函数，$ m $ 是样本数量。</p>
-<p>我们需要计算 $J(\theta) $ 对 $\theta$ 的偏导数，即梯度：</p>
-<p>$$ \nabla J(\theta) &#x3D; \frac{\partial}{\partial \theta} J(\theta) &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)} $$</p>
-<p>然后，我们使用梯度下降规则更新 $\theta$：</p>
-<p>$$\theta :&#x3D; \theta - \alpha \nabla J(\theta) $$</p>
-<p>这意味着我们减去了梯度与学习率 $\alpha$的乘积，以使 $J(\theta)$最小化。</p>
-<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>假设我们的数据集包含以下点：((1, 1), (2, 2), (3, 3))，我们想要找到一条直线 $ y &#x3D; \theta x $来拟合这些点。</p>
-<ol>
-<li>随机初始化 $\theta$，比如 $\theta &#x3D; 0$。</li>
-<li>计算 $J(\theta)$ 的梯度：在 $\theta &#x3D; 0 $ 时，$\nabla J(\theta) &#x3D; \frac{1}{3} \sum_{i&#x3D;1}^{3} (-i) \cdot i &#x3D; -\frac{14}{3}$。</li>
-<li>选择一个学习率，比如 $ \alpha &#x3D; 0.01$，并更新 $\theta$：$ \theta :&#x3D; 0 - 0.01 \cdot (-\frac{14}{3}) &#x3D; \frac{14}{300}$。</li>
-<li>重复步骤2和3，直到 $ \theta $ 收敛到最优解。</li>
-</ol>
-<p>通过这个过程，梯度下降算法能够逐渐找到最佳的 $\theta$ 值来最小化代价函数 $J(\theta)$，从而找到最佳的模型参数。</p>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在人工智能和统计学领域，分类分析是一种关键技术，用于识别和预测数据所属的类别。与回归分析主要处理连续变量不同，分类处理的是离散的输出标签。本文旨在探讨分类的基本概念、算法以及在现实世界的应用。</p>
+<h2 id="一-分类分析简介"><a href="#一-分类分析简介" class="headerlink" title="一. 分类分析简介"></a>一. 分类分析简介</h2><p>分类分析是一种监督学习方法，旨在基于一组输入变量预测离散的输出变量（类别标签）。其目标是从数据中学习一个模型，能够准确地将新数据点分类到特定的类别中。</p>
+<h2 id="二-常见分类算法"><a href="#二-常见分类算法" class="headerlink" title="二. 常见分类算法"></a>二. 常见分类算法</h2><h3 id="1-决策树"><a href="#1-决策树" class="headerlink" title="1. 决策树"></a>1. 决策树</h3><p>决策树是一种简单直观的分类方法，通过一系列规则将数据分割成不同的类别。每个决策节点代表对某个属性的测试，而每个叶节点代表一个类别。</p>
+<h3 id="2-支持向量机-SVM"><a href="#2-支持向量机-SVM" class="headerlink" title="2. 支持向量机 (SVM)"></a>2. 支持向量机 (SVM)</h3><p>支持向量机是一种强大的分类器，它通过找到一个最优的超平面来区分不同类别的数据。SVM在处理高维数据和非线性问题方面表现出色。</p>
+<h3 id="3-随机森林"><a href="#3-随机森林" class="headerlink" title="3. 随机森林"></a>3. 随机森林</h3><p>随机森林是一种集成学习方法，它构建多个决策树并将它们的预测结果结合起来。这种方法通常能提高模型的准确性和鲁棒性。</p>
+<h3 id="4-K-近邻-KNN"><a href="#4-K-近邻-KNN" class="headerlink" title="4. K-近邻 (KNN)"></a>4. K-近邻 (KNN)</h3><p>K-近邻算法基于距离度量，将一个数据点分配到它最近的K个邻居的主要类别中。它是一种简单但有效的方法，尤其适合于那些模式不易用数学模型描述的问题。</p>
+<h3 id="5-神经网络"><a href="#5-神经网络" class="headerlink" title="5. 神经网络"></a>5. 神经网络</h3><p>神经网络，特别是深度学习模型，已成为分类问题的流行解决方案。它们通过学习数据的复杂模式来进行分类，尤其擅长处理图像和语音数据。</p>
+<h2 id="三-损失函数与优化"><a href="#三-损失函数与优化" class="headerlink" title="三. 损失函数与优化"></a>三. 损失函数与优化</h2><p>分类问题的核心在于最小化预测错误。不同于回归分析的均方误差，分类通常使用以下损失函数：</p>
+<ul>
+<li><strong>交叉熵损失</strong>: 特别适用于二分类或多分类问题。公式为：$-\sum_{c&#x3D;1}^{M} y_{o,c} \log(p_{o,c})$，其中 $M$ 是类别数，$y$ 是二进制指示器（0或1），$p$ 是预测的概率。</li>
+</ul>
+<h2 id="四-分类的挑战与策略"><a href="#四-分类的挑战与策略" class="headerlink" title="四. 分类的挑战与策略"></a>四. 分类的挑战与策略</h2><p>分类分析在实际应用中面临诸多挑战，如类别不平衡、过拟合和特征选择等。解决这些问题通常需要采用特定的技术，例如：</p>
+<h3 id="1-类别不平衡"><a href="#1-类别不平衡" class="headerlink" title="1. 类别不平衡"></a>1. 类别不平衡</h3><p>处理不平衡数据时，可以采用重采样技术或使用特定的性能度量，如F1-score，来评估模型。</p>
+<h3 id="2-过拟合"><a href="#2-过拟合" class="headerlink" title="2. 过拟合"></a>2. 过拟合</h3><p>为防止过拟合，可以采用交叉验证、正则化技术或集成学习方法。</p>
+<h3 id="3-特征工程"><a href="#3-特征工程" class="headerlink" title="3. 特征工程"></a>3. 特征工程</h3><p>选择合适的特征并进行适当的转换是提高分类模型性能的关键。特征选择和降维技术在这方面发挥着重要作用。</p>
+<h2 id="五-应用实例"><a href="#五-应用实例" class="headerlink" title="五. 应用实例"></a>五. 应用实例</h2><p>分类分析在许多领域都有广泛应用，例如在医学中用于疾病诊断，在金融领域用于欺诈检测，在自然语言处理中用于情感分析等。</p>
+<h2 id="六-结论"><a href="#六-结论" class="headerlink" title="六. 结论"></a>六. 结论</h2><p>分类分析作为机器学习的一个重要分支，对于理解和预测数据类别具有重要意义。通过熟悉不同的分类算法和处理实际问题的技巧，可以有效地解析和利用分类数据，为决策提供支持。</p>
 
     </article>
     <!-- license -->
@@ -540,16 +534,16 @@
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2023/12/03/Classification/" title="Classification">
-                    <div class="nextTitle">Classification</div>
+                <a href="/2024/01/26/Swift%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Swift语言学习笔记">
+                    <div class="nextTitle">Swift语言学习笔记</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2023/12/01/Regression-Analysis/" title="Regression Analysis">
-                    <div class="prevTitle">Regression Analysis</div>
+                <a href="/2023/12/02/Gradient-Descent/" title="Gradient Descent">
+                    <div class="prevTitle">Gradient Descent</div>
                 </a>
             
         </li>
@@ -709,7 +703,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E6%8E%A8%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">数学推理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E7%90%86%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">推理过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">举例</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%88%86%E7%B1%BB%E5%88%86%E6%9E%90%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">一. 分类分析简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%B8%B8%E8%A7%81%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">二. 常见分类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">3.1.</span> <span class="toc-text">1. 决策树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA-SVM"><span class="toc-number">3.2.</span> <span class="toc-text">2. 支持向量机 (SVM)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-number">3.3.</span> <span class="toc-text">3. 随机森林</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-K-%E8%BF%91%E9%82%BB-KNN"><span class="toc-number">3.4.</span> <span class="toc-text">4. K-近邻 (KNN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">3.5.</span> <span class="toc-text">5. 神经网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">三. 损失函数与优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%88%86%E7%B1%BB%E7%9A%84%E6%8C%91%E6%88%98%E4%B8%8E%E7%AD%96%E7%95%A5"><span class="toc-number">5.</span> <span class="toc-text">四. 分类的挑战与策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%B1%BB%E5%88%AB%E4%B8%8D%E5%B9%B3%E8%A1%A1"><span class="toc-number">5.1.</span> <span class="toc-text">1. 类别不平衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">5.2.</span> <span class="toc-text">2. 过拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="toc-number">5.3.</span> <span class="toc-text">3. 特征工程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">6.</span> <span class="toc-text">五. 应用实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E7%BB%93%E8%AE%BA"><span class="toc-number">7.</span> <span class="toc-text">六. 结论</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
