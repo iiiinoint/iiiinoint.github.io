@@ -27,7 +27,7 @@
 <meta property="og:description" content="引言在人工智能和统计学领域，分类分析是一种关键技术，用于识别和预测数据所属的类别。与回归分析主要处理连续变量不同，分类处理的是离散的输出标签。本文旨在探讨分类的基本概念、算法以及在现实世界的应用。 一. 分类分析简介分类分析是一种监督学习方法，旨在基于一组输入变量预测离散的输出变量（类别标签）。其目标是从数据中学习一个模型，能够准确地将新数据点分类到特定的类别中。 二. 常见分类算法1. 决策树决">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-03T14:38:32.000Z">
-<meta property="article:modified_time" content="2024-01-26T14:39:25.773Z">
+<meta property="article:modified_time" content="2024-01-26T15:14:17.644Z">
 <meta property="article:author" content="Noint">
 <meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
@@ -347,7 +347,7 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">921</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                        <span>Word count: <span class="post-count word-count">3.5k</span>Reading time: <span class="post-count reading-time">12 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -511,20 +511,88 @@
         <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在人工智能和统计学领域，分类分析是一种关键技术，用于识别和预测数据所属的类别。与回归分析主要处理连续变量不同，分类处理的是离散的输出标签。本文旨在探讨分类的基本概念、算法以及在现实世界的应用。</p>
 <h2 id="一-分类分析简介"><a href="#一-分类分析简介" class="headerlink" title="一. 分类分析简介"></a>一. 分类分析简介</h2><p>分类分析是一种监督学习方法，旨在基于一组输入变量预测离散的输出变量（类别标签）。其目标是从数据中学习一个模型，能够准确地将新数据点分类到特定的类别中。</p>
 <h2 id="二-常见分类算法"><a href="#二-常见分类算法" class="headerlink" title="二. 常见分类算法"></a>二. 常见分类算法</h2><h3 id="1-决策树"><a href="#1-决策树" class="headerlink" title="1. 决策树"></a>1. 决策树</h3><p>决策树是一种简单直观的分类方法，通过一系列规则将数据分割成不同的类别。每个决策节点代表对某个属性的测试，而每个叶节点代表一个类别。</p>
+<blockquote>
+<h4 id="决策树的构建过程"><a href="#决策树的构建过程" class="headerlink" title="决策树的构建过程"></a>决策树的构建过程</h4><ol>
+<li><p><strong>选择最优特征</strong>：首先选择一个最优的特征作为根节点。”最优”通常是通过信息增益（在ID3算法中使用）或基尼不纯度（在CART算法中使用）来决定的。</p>
+</li>
+<li><p><strong>分裂节点</strong>：基于这个特征的不同值，数据集被分裂成几个子集。每个子集接着创建一个新的节点。</p>
+</li>
+<li><p><strong>递归构建</strong>：对每个子集重复以上步骤，直到所有的特征都被使用，或者每个子集都不能进一步分裂（所有的元素都属于同一个类别，或达到预设的停止条件）。</p>
+</li>
+<li><p><strong>剪枝处理</strong>：为了避免过拟合，可能需要对树进行剪枝。剪枝涉及删除部分子树或节点，以简化模型。</p>
+</li>
+</ol>
+<h4 id="决策树的数学原理"><a href="#决策树的数学原理" class="headerlink" title="决策树的数学原理"></a>决策树的数学原理</h4><h5 id="1-信息增益（Information-Gain）"><a href="#1-信息增益（Information-Gain）" class="headerlink" title="1. 信息增益（Information Gain）"></a>1. 信息增益（Information Gain）</h5><p>信息增益是用来决定决策树中节点分裂的关键标准之一。它基于信息熵的概念。信息熵是度量样本集合纯度最常用的方法，定义如下：</p>
+<p>$$ \text{Entropy}(S) &#x3D; -\sum_{i&#x3D;1}^{n} p_i \log_2 p_i $$</p>
+<p>其中，$S$是当前数据集，$n$是不同类别的数量，$p_i$是选择该类别的概率。熵越大，数据的不确定性越高。</p>
+<p>信息增益计算公式如下：</p>
+<p>$$ \text{Information Gain}(S, A) &#x3D; \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \text{Entropy}(S_v) $$</p>
+<p>这里，$A$是决定进行分裂的特征，$\text{Values}(A)$是这个特征所有可能的值，$S_v$是特征$A$上值为$v$的子集，$|S_v|$和$|S|$分别是子集和原始集合的大小。</p>
+<h5 id="2-基尼不纯度（Gini-Impurity）"><a href="#2-基尼不纯度（Gini-Impurity）" class="headerlink" title="2. 基尼不纯度（Gini Impurity）"></a>2. 基尼不纯度（Gini Impurity）</h5><p>基尼不纯度是CART（分类和回归树）算法中用于决策树构建的标准。它的计算公式是：</p>
+<p>$$ \text{Gini}(S) &#x3D; 1 - \sum_{i&#x3D;1}^{n} p_i^2 $$</p>
+<p>这里，$S$代表数据集，$n$是类别的数量，$p_i$是类别$i$在数据集$S$中的相对频率。基尼不纯度反映了从集合中随机选取两个元素，它们属于不同类别的概率。</p>
+<h5 id="3-决策树的分裂"><a href="#3-决策树的分裂" class="headerlink" title="3. 决策树的分裂"></a>3. 决策树的分裂</h5><p>在每个节点，算法将选择信息增益最高（或基尼不纯度最低）的特征进行分裂。这个过程会递归地继续，直到达到停止的条件，比如树达到了最大深度，或者节点中的样本数小于预定阈值。</p>
+<h5 id="4-剪枝（Pruning）"><a href="#4-剪枝（Pruning）" class="headerlink" title="4. 剪枝（Pruning）"></a>4. 剪枝（Pruning）</h5><p>为了避免过拟合，决策树可能需要剪枝。一种常见的剪枝方法是代价复杂度剪枝（Cost Complexity Pruning），其基本思想是通过一个参数$\alpha$（复杂度参数）来平衡树的深度和训练数据上的表现。</p>
+<h5 id="5-决策树的决策过程"><a href="#5-决策树的决策过程" class="headerlink" title="5. 决策树的决策过程"></a>5. 决策树的决策过程</h5><p>当构建好一个决策树后，对于一个新的样本，我们从根节点开始，根据其特征值走向对应的分支，直到达到叶节点。叶节点的值即为模型对该样本的预测结果。</p>
+</blockquote>
 <h3 id="2-支持向量机-SVM"><a href="#2-支持向量机-SVM" class="headerlink" title="2. 支持向量机 (SVM)"></a>2. 支持向量机 (SVM)</h3><p>支持向量机是一种强大的分类器，它通过找到一个最优的超平面来区分不同类别的数据。SVM在处理高维数据和非线性问题方面表现出色。</p>
+<blockquote>
+<h4 id="1-超平面和分类决策"><a href="#1-超平面和分类决策" class="headerlink" title="1. 超平面和分类决策"></a>1. 超平面和分类决策</h4><p>在SVM中，数据被视为$n$维空间中的点，其中每个特征对应一个维度。SVM的目标是找到一个能够正确分隔不同类别数据的最优超平面。数学上，这个超平面可以表示为：</p>
+<p>$$ w^T x + b &#x3D; 0 $$</p>
+<p>其中，$w$是超平面的法向量，决定了超平面的方向；$x$是特征向量；$b$是超平面到原点的距离。</p>
+<h4 id="2-最大间隔"><a href="#2-最大间隔" class="headerlink" title="2. 最大间隔"></a>2. 最大间隔</h4><p>SVM的核心是最大化两个类别之间的间隔。间隔被定义为从超平面到最近的训练数据点（支持向量）的距离。最大化间隔的数学表达式为：</p>
+<p>$$ \max \frac{2}{|w|} $$</p>
+<p>在这个优化问题中，我们同时需要满足所有训练样本的分类约束：</p>
+<p>$$ y_i (w^T x_i + b) \geq 1, \quad \text{for all } i $$</p>
+<p>其中，$y_i$是第$i$个样本的类别标签（+1或-1），$x_i$是第$i$个样本的特征向量。</p>
+<h4 id="3-二次规划问题"><a href="#3-二次规划问题" class="headerlink" title="3. 二次规划问题"></a>3. 二次规划问题</h4><p>将最大化间隔问题转化为二次规划问题，即最小化$\frac{1}{2}|w|^2$，同时满足上述分类约束。这可以通过拉格朗日乘子法求解。</p>
+<h4 id="4-核技巧"><a href="#4-核技巧" class="headerlink" title="4. 核技巧"></a>4. 核技巧</h4><p>当数据不是线性可分的，SVM可以通过引入核函数将数据映射到更高维的空间，在这个空间中数据可能是线性可分的。核函数的选择对SVM的性能至关重要。常见的核函数包括：</p>
+<ul>
+<li>线性核：$K(x, x’) &#x3D; x^T x’$</li>
+<li>多项式核：$K(x, x’) &#x3D; (\gamma x^T x’ + r)^d, \gamma &gt; 0$</li>
+<li>径向基函数（RBF）核：$K(x, x’) &#x3D; e^{-\gamma |x - x’|^2}, \gamma &gt; 0$</li>
+</ul>
+<h4 id="5-SVM的求解"><a href="#5-SVM的求解" class="headerlink" title="5. SVM的求解"></a>5. SVM的求解</h4><p>在实践中，通常利用序列最小优化（SMO）算法或其他优化方法来求解SVM中的二次规划问题，从而找到最优的$w$和$b$。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>支持向量机通过最大化不同类别数据之间的间隔来实现分类。它可以有效处理高维数据，并且通过使用核技巧，能够处理非线性可分的数据。SVM是一种强大且灵活的机器学习工具，在许多实际应用中表现出色。</p>
+</blockquote>
 <h3 id="3-随机森林"><a href="#3-随机森林" class="headerlink" title="3. 随机森林"></a>3. 随机森林</h3><p>随机森林是一种集成学习方法，它构建多个决策树并将它们的预测结果结合起来。这种方法通常能提高模型的准确性和鲁棒性。</p>
 <h3 id="4-K-近邻-KNN"><a href="#4-K-近邻-KNN" class="headerlink" title="4. K-近邻 (KNN)"></a>4. K-近邻 (KNN)</h3><p>K-近邻算法基于距离度量，将一个数据点分配到它最近的K个邻居的主要类别中。它是一种简单但有效的方法，尤其适合于那些模式不易用数学模型描述的问题。</p>
+<blockquote>
+<h4 id="1-KNN的基本原理"><a href="#1-KNN的基本原理" class="headerlink" title="1. KNN的基本原理"></a>1. KNN的基本原理</h4><p>KNN算法在给定一个训练数据集时，对新的输入实例，在训练集中找到与该实例最近邻的$k$个实例。这些实例的多数投票结果就是KNN算法对新实例的预测分类。</p>
+<p>数学上，给定一个测试点$x$，KNN算法首先计算它与训练集中每个点$x_i$之间的距离。距离的常见度量方法包括欧氏距离、曼哈顿距离等。以欧氏距离为例，计算公式为：</p>
+<p>$$ d(x, x_i) &#x3D; \sqrt{\sum_{j&#x3D;1}^{n}(x_j - x_{ij})^2} $$</p>
+<p>其中，$n$是特征的数量，$x_j$是测试点在第$j$个特征上的值，$x_{ij}$是训练样本$x_i$在第$j$个特征上的值。</p>
+<h4 id="2-选择最近邻居"><a href="#2-选择最近邻居" class="headerlink" title="2. 选择最近邻居"></a>2. 选择最近邻居</h4><p>在计算出所有训练样本与测试样本之间的距离后，算法将这些距离排序，并选择距离最近的$k$个样本。</p>
+<h4 id="3-进行预测"><a href="#3-进行预测" class="headerlink" title="3. 进行预测"></a>3. 进行预测</h4><p>在分类任务中，KNN通常采用投票机制，即在最近的$k$个邻居中，出现次数最多的类别将作为预测类别：</p>
+<p>$$ \text{预测类别} &#x3D; \arg\max_{c} \sum_{i&#x3D;1}^{k} I(y_i &#x3D; c) $$</p>
+<p>其中，$I$是指示函数，如果$y_i$等于类别$c$，则$I(y_i &#x3D; c) &#x3D; 1$，否则为$0$。</p>
+<p>在回归任务中，KNN通常通过计算$k$个最近邻居的输出值的平均值来进行预测。</p>
+<h4 id="4-参数选择"><a href="#4-参数选择" class="headerlink" title="4. 参数选择"></a>4. 参数选择</h4><p>KNN算法的关键参数是$k$（最近邻居的数量）和距离度量的选择。$k$的选择对算法的结果有显著影响。较小的$k$值意味着噪声对结果的影响更大，而较大的$k$值则可能导致算法无法捕捉到数据的细微特征。</p>
+<h4 id="5-缺点"><a href="#5-缺点" class="headerlink" title="5. 缺点"></a>5. 缺点</h4><p>KNN算法的一个主要缺点是对于大数据集来说计算成本较高，因为它需要为每个测试实例与所有训练实例之间计算距离。此外，KNN对数据中的噪声和不相关特征敏感。</p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>K-近邻算法是一种基于实例的学习方法，通过查找最近的$k$个邻居并采取多数投票或平均策略来进行预测。它是一种非参数算法，既可以用于分类也可以用于回归，但需要谨慎选择$k$值和距离度量方式。</p>
+</blockquote>
 <h3 id="5-神经网络"><a href="#5-神经网络" class="headerlink" title="5. 神经网络"></a>5. 神经网络</h3><p>神经网络，特别是深度学习模型，已成为分类问题的流行解决方案。它们通过学习数据的复杂模式来进行分类，尤其擅长处理图像和语音数据。</p>
 <h2 id="三-损失函数与优化"><a href="#三-损失函数与优化" class="headerlink" title="三. 损失函数与优化"></a>三. 损失函数与优化</h2><p>分类问题的核心在于最小化预测错误。不同于回归分析的均方误差，分类通常使用以下损失函数：</p>
 <ul>
 <li><strong>交叉熵损失</strong>: 特别适用于二分类或多分类问题。公式为：$-\sum_{c&#x3D;1}^{M} y_{o,c} \log(p_{o,c})$，其中 $M$ 是类别数，$y$ 是二进制指示器（0或1），$p$ 是预测的概率。</li>
 </ul>
-<h2 id="四-分类的挑战与策略"><a href="#四-分类的挑战与策略" class="headerlink" title="四. 分类的挑战与策略"></a>四. 分类的挑战与策略</h2><p>分类分析在实际应用中面临诸多挑战，如类别不平衡、过拟合和特征选择等。解决这些问题通常需要采用特定的技术，例如：</p>
+<h2 id="四-高斯分布与极大似然估计在分类中的应用"><a href="#四-高斯分布与极大似然估计在分类中的应用" class="headerlink" title="四. 高斯分布与极大似然估计在分类中的应用"></a>四. 高斯分布与极大似然估计在分类中的应用</h2><h3 id="高斯分布在分类中的角色"><a href="#高斯分布在分类中的角色" class="headerlink" title="高斯分布在分类中的角色"></a>高斯分布在分类中的角色</h3><p>在分类问题中，我们经常假设数据遵循特定的分布，其中高斯分布（正态分布）是最常见的一种。高斯分布通过其均值（$\mu$）和方差（$\sigma^2$）来描述数据的分布特性。数学上，高斯分布的概率密度函数表示为：</p>
+<p>$$ f(x|\mu,\sigma^2) &#x3D; \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$</p>
+<p>这个公式帮助我们理解数据如何围绕均值分布以及数据的集中趋势和离散程度。</p>
+<h3 id="极大似然估计法（MLE）"><a href="#极大似然估计法（MLE）" class="headerlink" title="极大似然估计法（MLE）"></a>极大似然估计法（MLE）</h3><p>极大似然估计法是一种基于概率的方法，用于估计模型中的参数（如高斯分布的均值和方差）。在给定数据集的情况下，MLE寻找能使数据出现概率最大化的参数值。对于高斯分布，MLE的目标是找到最佳的$\mu$和$\sigma^2$，使得观测数据在这些参数下的概率最大。数学上，MLE通过以下公式来实现：</p>
+<p>$$ \hat{\mu} &#x3D; \frac{1}{N}\sum_{i&#x3D;1}^{N}x_i, \quad \hat{\sigma}^2 &#x3D; \frac{1}{N}\sum_{i&#x3D;1}^{N}(x_i - \hat{\mu})^2 $$</p>
+<p>其中，$N$是样本数量，$x_i$是单个样本。</p>
+<h3 id="利用贝叶斯公式进行分类"><a href="#利用贝叶斯公式进行分类" class="headerlink" title="利用贝叶斯公式进行分类"></a>利用贝叶斯公式进行分类</h3><p>一旦我们有了数据的高斯分布参数，就可以使用贝叶斯公式来进行分类。贝叶斯公式结合了先验知识和观测数据来更新对事件的概率估计。在分类中，它可以表示为：</p>
+<p>$$ P(Y|X) &#x3D; \frac{P(X|Y)P(Y)}{P(X)} $$</p>
+<p>其中，$P(Y|X)$是在给定特征$X$的情况下，类别$Y$的后验概率；$P(X|Y)$是给定类别的特征概率；$P(Y)$是类别的先验概率；$P(X)$是特征的边缘概率。</p>
+<p>通过结合极大似然估计的高斯分布参数和贝叶斯公式，我们可以更准确地对数据进行分类。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>高斯分布、极大似然估计法和贝叶斯公式在机器学习的分类问题中扮演着重要角色。它们帮助我们从数学和概率的角度更好地理解和解决分类问题，从而提高模型的准确性和可靠性。</p>
+<h2 id="五-分类的挑战与策略"><a href="#五-分类的挑战与策略" class="headerlink" title="五. 分类的挑战与策略"></a>五. 分类的挑战与策略</h2><p>分类分析在实际应用中面临诸多挑战，如类别不平衡、过拟合和特征选择等。解决这些问题通常需要采用特定的技术，例如：</p>
 <h3 id="1-类别不平衡"><a href="#1-类别不平衡" class="headerlink" title="1. 类别不平衡"></a>1. 类别不平衡</h3><p>处理不平衡数据时，可以采用重采样技术或使用特定的性能度量，如F1-score，来评估模型。</p>
 <h3 id="2-过拟合"><a href="#2-过拟合" class="headerlink" title="2. 过拟合"></a>2. 过拟合</h3><p>为防止过拟合，可以采用交叉验证、正则化技术或集成学习方法。</p>
 <h3 id="3-特征工程"><a href="#3-特征工程" class="headerlink" title="3. 特征工程"></a>3. 特征工程</h3><p>选择合适的特征并进行适当的转换是提高分类模型性能的关键。特征选择和降维技术在这方面发挥着重要作用。</p>
-<h2 id="五-应用实例"><a href="#五-应用实例" class="headerlink" title="五. 应用实例"></a>五. 应用实例</h2><p>分类分析在许多领域都有广泛应用，例如在医学中用于疾病诊断，在金融领域用于欺诈检测，在自然语言处理中用于情感分析等。</p>
-<h2 id="六-结论"><a href="#六-结论" class="headerlink" title="六. 结论"></a>六. 结论</h2><p>分类分析作为机器学习的一个重要分支，对于理解和预测数据类别具有重要意义。通过熟悉不同的分类算法和处理实际问题的技巧，可以有效地解析和利用分类数据，为决策提供支持。</p>
+<h2 id="六-应用实例"><a href="#六-应用实例" class="headerlink" title="六. 应用实例"></a>六. 应用实例</h2><p>分类分析在许多领域都有广泛应用，例如在医学中用于疾病诊断，在金融领域用于欺诈检测，在自然语言处理中用于情感分析等。</p>
+<h2 id="七-结论"><a href="#七-结论" class="headerlink" title="七. 结论"></a>七. 结论</h2><p>分类分析作为机器学习的一个重要分支，对于理解和预测数据类别具有重要意义。通过熟悉不同的分类算法和处理实际问题的技巧，可以有效地解析和利用分类数据，为决策提供支持。</p>
 
     </article>
     <!-- license -->
@@ -703,7 +771,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%88%86%E7%B1%BB%E5%88%86%E6%9E%90%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">一. 分类分析简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%B8%B8%E8%A7%81%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">二. 常见分类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">3.1.</span> <span class="toc-text">1. 决策树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA-SVM"><span class="toc-number">3.2.</span> <span class="toc-text">2. 支持向量机 (SVM)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-number">3.3.</span> <span class="toc-text">3. 随机森林</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-K-%E8%BF%91%E9%82%BB-KNN"><span class="toc-number">3.4.</span> <span class="toc-text">4. K-近邻 (KNN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">3.5.</span> <span class="toc-text">5. 神经网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">三. 损失函数与优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%88%86%E7%B1%BB%E7%9A%84%E6%8C%91%E6%88%98%E4%B8%8E%E7%AD%96%E7%95%A5"><span class="toc-number">5.</span> <span class="toc-text">四. 分类的挑战与策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%B1%BB%E5%88%AB%E4%B8%8D%E5%B9%B3%E8%A1%A1"><span class="toc-number">5.1.</span> <span class="toc-text">1. 类别不平衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">5.2.</span> <span class="toc-text">2. 过拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="toc-number">5.3.</span> <span class="toc-text">3. 特征工程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">6.</span> <span class="toc-text">五. 应用实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E7%BB%93%E8%AE%BA"><span class="toc-number">7.</span> <span class="toc-text">六. 结论</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%88%86%E7%B1%BB%E5%88%86%E6%9E%90%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">一. 分类分析简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%B8%B8%E8%A7%81%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">二. 常见分类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">3.1.</span> <span class="toc-text">1. 决策树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">3.1.1.</span> <span class="toc-text">决策树的构建过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="toc-number">3.1.2.</span> <span class="toc-text">决策树的数学原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%EF%BC%88Information-Gain%EF%BC%89"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">1. 信息增益（Information Gain）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%9F%BA%E5%B0%BC%E4%B8%8D%E7%BA%AF%E5%BA%A6%EF%BC%88Gini-Impurity%EF%BC%89"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">2. 基尼不纯度（Gini Impurity）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%88%86%E8%A3%82"><span class="toc-number">3.1.2.3.</span> <span class="toc-text">3. 决策树的分裂</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%89%AA%E6%9E%9D%EF%BC%88Pruning%EF%BC%89"><span class="toc-number">3.1.2.4.</span> <span class="toc-text">4. 剪枝（Pruning）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B"><span class="toc-number">3.1.2.5.</span> <span class="toc-text">5. 决策树的决策过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA-SVM"><span class="toc-number">3.2.</span> <span class="toc-text">2. 支持向量机 (SVM)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%B6%85%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%88%86%E7%B1%BB%E5%86%B3%E7%AD%96"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. 超平面和分类决策</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%9C%80%E5%A4%A7%E9%97%B4%E9%9A%94"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. 最大间隔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="toc-number">3.2.3.</span> <span class="toc-text">3. 二次规划问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%A0%B8%E6%8A%80%E5%B7%A7"><span class="toc-number">3.2.4.</span> <span class="toc-text">4. 核技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-SVM%E7%9A%84%E6%B1%82%E8%A7%A3"><span class="toc-number">3.2.5.</span> <span class="toc-text">5. SVM的求解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.2.6.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-number">3.3.</span> <span class="toc-text">3. 随机森林</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-K-%E8%BF%91%E9%82%BB-KNN"><span class="toc-number">3.4.</span> <span class="toc-text">4. K-近邻 (KNN)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-KNN%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">3.4.1.</span> <span class="toc-text">1. KNN的基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%80%89%E6%8B%A9%E6%9C%80%E8%BF%91%E9%82%BB%E5%B1%85"><span class="toc-number">3.4.2.</span> <span class="toc-text">2. 选择最近邻居</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BF%9B%E8%A1%8C%E9%A2%84%E6%B5%8B"><span class="toc-number">3.4.3.</span> <span class="toc-text">3. 进行预测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%8F%82%E6%95%B0%E9%80%89%E6%8B%A9"><span class="toc-number">3.4.4.</span> <span class="toc-text">4. 参数选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E7%BC%BA%E7%82%B9"><span class="toc-number">3.4.5.</span> <span class="toc-text">5. 缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">3.4.6.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">3.5.</span> <span class="toc-text">5. 神经网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">三. 损失函数与优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83%E4%B8%8E%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1%E5%9C%A8%E5%88%86%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">四. 高斯分布与极大似然估计在分类中的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83%E5%9C%A8%E5%88%86%E7%B1%BB%E4%B8%AD%E7%9A%84%E8%A7%92%E8%89%B2"><span class="toc-number">5.1.</span> <span class="toc-text">高斯分布在分类中的角色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1%E6%B3%95%EF%BC%88MLE%EF%BC%89"><span class="toc-number">5.2.</span> <span class="toc-text">极大似然估计法（MLE）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB"><span class="toc-number">5.3.</span> <span class="toc-text">利用贝叶斯公式进行分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">5.4.</span> <span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E5%88%86%E7%B1%BB%E7%9A%84%E6%8C%91%E6%88%98%E4%B8%8E%E7%AD%96%E7%95%A5"><span class="toc-number">6.</span> <span class="toc-text">五. 分类的挑战与策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%B1%BB%E5%88%AB%E4%B8%8D%E5%B9%B3%E8%A1%A1"><span class="toc-number">6.1.</span> <span class="toc-text">1. 类别不平衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">6.2.</span> <span class="toc-text">2. 过拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="toc-number">6.3.</span> <span class="toc-text">3. 特征工程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">7.</span> <span class="toc-text">六. 应用实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83-%E7%BB%93%E8%AE%BA"><span class="toc-number">8.</span> <span class="toc-text">七. 结论</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -758,6 +826,8 @@
         
         
     
+        
+        
         
         
         
