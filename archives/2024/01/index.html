@@ -21,7 +21,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://noint.top/categories/Computer-Science/Computer-Organization-and-Design/index.html">
+<meta property="og:url" content="http://noint.top/archives/2024/01/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Noint">
@@ -430,26 +430,39 @@
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2023/10/17/Hazards-in-Pipelined-CPU/">
+            <a class="abstract-title" href="/2024/01/26/Swift%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                 
-                <span class="abstract-title-text">Hazards in Pipelined CPU</span>
+                <span class="abstract-title-text">Swift语言学习笔记</span>
             </a>
             <div class="abstract-content">
-                <p>在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类：</p>
-<h2 id="一、数据冲突（Data-Hazards）"><a href="#一、数据冲突（Data-Hazards）" class="headerlink" title="一、数据冲突（Data Hazards）"></a>一、数据冲突（Data Hazards）</h2><p>数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。</p>
+                <h1 id="关于-Swift"><a href="#关于-Swift" class="headerlink" title="关于 Swift"></a>关于 Swift</h1><p>Swift 是一种非常好的编写软件的方式，无论是手机，台式机，服务器，还是其他运行代码的设备。它是一种安全，快速和互动的编程语言，将现代编程语言的精华和苹果工程师文化的智慧，以及来自开源社区的多样化贡献结合了起来。编译器对性能进行了优化，编程语言对开发进行了优化，两者互不干扰，鱼与熊掌兼得。</p>
+<p>Swift 对于初学者来说也很友好。它是一门满足工业标准的编程语言，但又有着脚本语言般的表达力和可玩性。它支持代码预览（playgrounds），这个革命性的特性可以允许程序员在不编译和运行应用程序的前提下运行 Swift 代码并实时查看结果。</p>
+<p>Swift 通过采用现代编程模式来避免大量常见编程错误：</p>
 <ul>
-<li>Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器<code>R1</code>写入数据，而第二条指令需要从<code>R1</code>读取数据。</li>
+<li>变量始终在使用前初始化。</li>
+<li>检查数组索引超出范围的错误。</li>
+<li>检查整数是否溢出。</li>
+<li>可选值确保明确处理 <code>nil</code> 值。</li>
+<li>内存被自动管理。</li>
+<li>错误处理允许从意外故障控制恢复。</li>
 </ul>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>数据前推（Data Forwarding）或者暂停（Stalling）。</p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png" alt="截屏2023-10-17 11.01.05"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png" alt="截屏2023-10-17 11.03.06"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png" alt="截屏2023-10-17 11.04.16"></p>
-<h2 id="二、控制冲突（Control-Hazards）"><a href="#二、控制冲突（Control-Hazards）" class="headerlink" title="二、控制冲突（Control Hazards）"></a>二、控制冲突（Control Hazards）</h2>
+<p>Swift 代码被编译和优化，以充分利用现代硬件。语法和标准库是基于指导原则设计的，编写代码的明显方式也应该是最好的。安全性和速度的结合使得 Swift 成为从 “Hello，world！” 到整个操作系统的绝佳选择。</p>
+<p>关于语法细节可参考：<a target="_blank" rel="noopener" href="https://swift.bootcss.com/">https://swift.bootcss.com/</a></p>
+<h1 id="语法笔记"><a href="#语法笔记" class="headerlink" title="语法笔记"></a>语法笔记</h1><h2 id="2-1-说明"><a href="#2-1-说明" class="headerlink" title="2.1 说明"></a>2.1 说明</h2><p>Swift 包含了 C 和 Objective-C 上所有基础数据类型，<code>Int</code> 表示整型值； <code>Double</code> 和 <code>Float</code> 表示浮点型值； <code>Bool</code> 是布尔型值；<code>String</code> 是文本型数据。 Swift 还提供了三个基本的集合类型，<code>Array</code>、<code>Set</code> 和 <code>Dictionary</code>。</p>
+<p>就像 C 语言一样，Swift 使用变量来进行存储并通过变量名来关联值。在 Swift 中，广泛的使用着值不可变的变量，它们就是常量，而且比 C 语言的常量更强大。在 Swift 中，如果你要处理的值不需要改变，那使用常量可以让你的代码更加安全并且更清晰地表达你的意图。</p>
+<p>除了我们熟悉的类型，Swift 还增加了 Objective-C 中没有的高阶数据类型比如元组（Tuple）。元组可以让你创建或者传递一组数据，比如作为函数的返回值时，你可以用一个元组可以返回多个值。</p>
+<p>Swift 还增加了可选（Optional）类型，用于处理值缺失的情况。可选表示 “那儿有一个值，并且它等于 <em>x</em> ” 或者 “那儿没有值” 。可选有点像在 Objective-C 中使用 <code>nil</code> ，但是它可以用在任何类型上，不仅仅是类。可选类型比 Objective-C 中的 <code>nil</code> 指针更加安全也更具表现力，它是 Swift 许多强大特性的重要组成部分。</p>
+<p>Swift 是一门 <em>类型安全</em> 的语言，这意味着 Swift 可以让你清楚地知道值的类型。如果你的代码需要一个 <code>String</code> ，类型安全会阻止你不小心传入一个 <code>Int</code> 。同样的，如果你的代码需要一个 <code>String</code>，类型安全会阻止你意外传入一个可选的 <code>String</code> 。类型安全可以帮助你在开发阶段尽早发现并修正错误。</p>
+<h2 id="2-2-基础类型"><a href="#2-2-基础类型" class="headerlink" title="2.2 基础类型"></a>2.2 基础类型</h2><h3 id="1）变量与常量"><a href="#1）变量与常量" class="headerlink" title="1）变量与常量"></a>1）变量与常量</h3><h4 id="声明常量和变量"><a href="#声明常量和变量" class="headerlink" title="声明常量和变量"></a>声明常量和变量</h4><p>常量和变量必须在使用前声明，用 <code>let</code> 来声明常量，用 <code>var</code> 来声明变量。下面的例子展示了如何用常量和变量来记录用户尝试登录的次数：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> maximumNumberOfLoginAttempts <span class="operator">=</span> <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> currentLoginAttempt <span class="operator">=</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>这两行代码可以被理解为：</p>
+<p>“声明一个名字是 <code>maximumNumberOfLoginAttempts</code> 的新常量，并给它一个值 <code>10</code> 。然后，声明一个名字是 <code>currentLoginAttempt</code> 的变量并将它的值初始化为 <code>0</code> 。”</p>
             </div>
             <!-- read more -->
             
                 <div class="abstract-read-more-button">
-                    <a href="/2023/10/17/Hazards-in-Pipelined-CPU/">
+                    <a href="/2024/01/26/Swift%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                         <span style="margin-right: 0.2rem;">READ ARTICLE</span>
                         <i class="fas fa-angle-right"></i>
                     </a>
@@ -457,8 +470,8 @@
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/23">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/17</span>
+                <div class="abstract-date" title="Last updated: 2024/01/26">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2024/01/26</span>
                 </div>
                 <!-- tags -->
                 
@@ -468,13 +481,11 @@
         
             
         
-            
         
-        
-        <span class="post-category" data-categories="Computer Science/Computer Organization and Design"">
+        <span class="post-category" data-categories="Computer Science"">
             <i class="fas fa-folder post-category-icon"></i>
             <span class="post-category-text">
-                Computer Science/Computer Organization and Design
+                Computer Science
             </span>
         </span>
     
