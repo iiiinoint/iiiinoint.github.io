@@ -27,7 +27,7 @@
 <meta property="og:description" content="生成学习的基本概念生成学习的核心思想是学习样本数据的概率分布。一旦学习到这种分布，就可以生成新的、与原始数据类似的样本。生成模型通常包括基于概率的模型，如高斯混合模型（Gaussian Mixture Model, GMM），和近年来流行的基于神经网络的模型，如生成对抗网络（Generative Adversarial Networks, GANs）和变分自编码器（Variational Auto">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-05T10:55:15.000Z">
-<meta property="article:modified_time" content="2024-01-27T10:01:59.511Z">
+<meta property="article:modified_time" content="2024-01-27T10:16:07.109Z">
 <meta property="article:author" content="Noint">
 <meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
@@ -509,22 +509,29 @@
                 <main class="main post-page">
     <article class="article-entry">
         <h2 id="生成学习的基本概念"><a href="#生成学习的基本概念" class="headerlink" title="生成学习的基本概念"></a>生成学习的基本概念</h2><p>生成学习的核心思想是学习样本数据的概率分布。一旦学习到这种分布，就可以生成新的、与原始数据类似的样本。生成模型通常包括基于概率的模型，如高斯混合模型（Gaussian Mixture Model, GMM），和近年来流行的基于神经网络的模型，如生成对抗网络（Generative Adversarial Networks, GANs）和变分自编码器（Variational Autoencoders, VAEs）。</p>
-<h3 id="概率模型"><a href="#概率模型" class="headerlink" title="概率模型"></a>概率模型</h3><p>生成学习的一个关键方面是使用概率模型来描述数据。例如，假设我们有一个数据集${x^{(1)}, x^{(2)}, …, x^{(m)}}$，我们希望学习这个数据集的概率分布$p(x)$。</p>
+<h3 id="概率模型"><a href="#概率模型" class="headerlink" title="概率模型"></a>概率模型</h3><blockquote>
+<p>生成学习的一个关键方面是使用概率模型来描述数据。例如，假设我们有一个数据集${x^{(1)}, x^{(2)}, …, x^{(m)}}$，我们希望学习这个数据集的概率分布$p(x)$。</p>
 <p>对于简单的场景，可以考虑使用如高斯分布的参数化方法：</p>
 <p>$$ p(x; \mu, \sigma^2) &#x3D; \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$</p>
 <p>其中，$\mu$是均值，$\sigma^2$是方差。</p>
-<h3 id="高斯混合模型（GMM）"><a href="#高斯混合模型（GMM）" class="headerlink" title="高斯混合模型（GMM）"></a>高斯混合模型（GMM）</h3><p>高斯混合模型是一种常用的生成模型，它假设数据是由多个高斯分布混合而成的。其概率密度函数为：</p>
+</blockquote>
+<h3 id="高斯混合模型（GMM）"><a href="#高斯混合模型（GMM）" class="headerlink" title="高斯混合模型（GMM）"></a>高斯混合模型（GMM）</h3><blockquote>
+<p>高斯混合模型是一种常用的生成模型，它假设数据是由多个高斯分布混合而成的。其概率密度函数为：</p>
 <p>$$ p(x) &#x3D; \sum_{k&#x3D;1}^K \phi_k \mathcal{N}(x; \mu_k, \Sigma_k) $$</p>
 <p>这里，$K$是混合成分的数量，$\phi_k$是第$k$个成分的混合系数，$\mathcal{N}(x; \mu_k, \Sigma_k)$是以$\mu_k$为均值、$\Sigma_k$为协方差矩阵的多变量高斯分布。</p>
+</blockquote>
 <h2 id="基于神经网络的生成模型"><a href="#基于神经网络的生成模型" class="headerlink" title="基于神经网络的生成模型"></a>基于神经网络的生成模型</h2><h3 id="生成对抗网络（GANs）"><a href="#生成对抗网络（GANs）" class="headerlink" title="生成对抗网络（GANs）"></a>生成对抗网络（GANs）</h3><p>生成对抗网络由两部分组成：生成器（Generator）和判别器（Discriminator）。生成器负责生成数据，而判别器负责判断数据是真实的还是由生成器生成的。GAN的训练过程可以看作是一个博弈过程，生成器试图生成越来越逼真的数据，而判别器试图越来越准确地区分真实数据和生成数据。</p>
+<blockquote>
 <p>数学上，GAN的目标函数可以表示为：</p>
 <p>$$ \min_G \max_D V(D, G) &#x3D; \mathbb{E}<em>{x \sim p</em>{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] $$</p>
 <p>其中，$G$是生成器，$D$是判别器，$z$是从某种概率分布$p_z(z)$（通常是高斯分布）中采样的噪声。</p>
-<h3 id="变分自编码器（VAEs）"><a href="#变分自编码器（VAEs）" class="headerlink" title="变分自编码器（VAEs）"></a>变分自编码器（VAEs）</h3><p>变分自编码器是另一种流行的生成模型，它通过编码器将数据映射到一个潜在空间，并通过解码器从这个潜在空间生成数据。VAE的关键在于其损失函数，它包括重构误差和潜在</p>
-<p>空间的正则化项。</p>
+</blockquote>
+<h3 id="变分自编码器（VAEs）"><a href="#变分自编码器（VAEs）" class="headerlink" title="变分自编码器（VAEs）"></a>变分自编码器（VAEs）</h3><p>变分自编码器是另一种流行的生成模型，它通过编码器将数据映射到一个潜在空间，并通过解码器从这个潜在空间生成数据。VAE的关键在于其损失函数，它包括重构误差和潜在空间的正则化项。</p>
+<blockquote>
 <p>VAE的损失函数由两部分组成：</p>
 <p>$$ \mathcal{L}(\theta, \phi; x) &#x3D; -\mathbb{E}_{z \sim q_\phi(z|x)}[\log p_\theta(x|z)] + KL(q_\phi(z|x) || p(z)) $$</p>
 <p>其中，第一项是重构误差，第二项是由编码器生成的潜在变量分布$q_\phi(z|x)$与先验分布$p(z)$（通常是标准正态分布）之间的Kullback-Leibler (KL) 散度。</p>
+</blockquote>
 <h2 id="当前最热门的生成式学习技术简介"><a href="#当前最热门的生成式学习技术简介" class="headerlink" title="当前最热门的生成式学习技术简介"></a>当前最热门的生成式学习技术简介</h2><ol>
 <li><strong>生成对抗网络（GANs）</strong>：GANs由两部分组成：生成器（Generator）和判别器（Discriminator）。生成器负责生成数据，判别器则区分真实数据与生成数据。GANs在图像生成、艺术创作等领域取得了显著成果。</li>
 <li><strong>变分自编码器（VAEs）</strong>：VAEs通过编码器将数据映射到潜在空间，并通过解码器从该空间生成数据。VAEs在图像重构、风格转换等方面表现出色。</li>

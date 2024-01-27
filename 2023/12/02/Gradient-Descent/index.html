@@ -27,7 +27,7 @@
 <meta property="og:description" content="梯度下降（Gradient Descent）是一种常用于机器学习和深度学习中的优化算法，用于最小化一个函数。这个函数通常被称为“代价函数”或“损失函数”，它衡量了模型预测值与实际值之间的差距。梯度下降的核心思想是，通过迭代的方式逐步调整参数以找到使代价函数最小化的参数值。 数学推理为了理解梯度下降，我们首先需要理解“梯度”的概念。在多变量微积分中，一个函数在某一点的梯度由该点处的偏导数构成，它指向">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-02T05:23:41.000Z">
-<meta property="article:modified_time" content="2024-01-27T09:06:05.492Z">
+<meta property="article:modified_time" content="2024-01-27T10:15:21.321Z">
 <meta property="article:author" content="Noint">
 <meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
@@ -510,6 +510,7 @@
     <article class="article-entry">
         <p>梯度下降（Gradient Descent）是一种常用于机器学习和深度学习中的优化算法，用于最小化一个函数。这个函数通常被称为“代价函数”或“损失函数”，它衡量了模型预测值与实际值之间的差距。梯度下降的核心思想是，通过迭代的方式逐步调整参数以找到使代价函数最小化的参数值。</p>
 <h3 id="数学推理"><a href="#数学推理" class="headerlink" title="数学推理"></a>数学推理</h3><p>为了理解梯度下降，我们首先需要理解“梯度”的概念。在多变量微积分中，一个函数在某一点的梯度由该点处的偏导数构成，它指向该函数增长最快的方向。因此，梯度的反方向就是函数下降最快的方向。</p>
+<blockquote>
 <p>假设我们有一个代价函数 $ J(\theta) $，其中 $\theta $是模型的参数。我们的目标是找到使 $ J(\theta) $最小的$\theta $值。梯度下降算法会执行以下步骤：</p>
 <ol>
 <li>随机初始化参数 $\theta $。</li>
@@ -517,13 +518,17 @@
 <li>更新 $\theta $，使其沿着梯度的反方向移动：$ \theta :&#x3D; \theta - \alpha \nabla J(\theta) $，其中 $\alpha $ 是学习率，控制步长大小。</li>
 <li>重复步骤2和3，直到达到收敛条件（例如，梯度的大小足够小或迭代次数达到某个阈值）。</li>
 </ol>
-<h3 id="推理过程"><a href="#推理过程" class="headerlink" title="推理过程"></a>推理过程</h3><p>以一个简单的线性回归模型为例，假设我们有一个代价函数 $J(\theta) &#x3D; \frac{1}{2m} \sum_{i&#x3D;1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2 $，其中 $h_\theta(x) &#x3D; \theta^T x $是我们的假设函数，$ m $ 是样本数量。</p>
+</blockquote>
+<h3 id="推理过程"><a href="#推理过程" class="headerlink" title="推理过程"></a>推理过程</h3><blockquote>
+<p>以一个简单的线性回归模型为例，假设我们有一个代价函数 $J(\theta) &#x3D; \frac{1}{2m} \sum_{i&#x3D;1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2 $，其中 $h_\theta(x) &#x3D; \theta^T x $是我们的假设函数，$ m $ 是样本数量。</p>
 <p>我们需要计算 $J(\theta) $ 对 $\theta$ 的偏导数，即梯度：</p>
 <p>$$ \nabla J(\theta) &#x3D; \frac{\partial}{\partial \theta} J(\theta) &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)} $$</p>
 <p>然后，我们使用梯度下降规则更新 $\theta$：</p>
 <p>$$\theta :&#x3D; \theta - \alpha \nabla J(\theta) $$</p>
 <p>这意味着我们减去了梯度与学习率 $\alpha$的乘积，以使 $J(\theta)$最小化。</p>
-<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>假设我们的数据集包含以下点：((1, 1), (2, 2), (3, 3))，我们想要找到一条直线 $ y &#x3D; \theta x $来拟合这些点。</p>
+</blockquote>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><blockquote>
+<p>假设我们的数据集包含以下点：((1, 1), (2, 2), (3, 3))，我们想要找到一条直线 $ y &#x3D; \theta x $来拟合这些点。</p>
 <ol>
 <li>随机初始化 $\theta$，比如 $\theta &#x3D; 0$。</li>
 <li>计算 $J(\theta)$ 的梯度：在 $\theta &#x3D; 0 $ 时，$\nabla J(\theta) &#x3D; \frac{1}{3} \sum_{i&#x3D;1}^{3} (-i) \cdot i &#x3D; -\frac{14}{3}$。</li>
@@ -531,6 +536,7 @@
 <li>重复步骤2和3，直到 $ \theta $ 收敛到最优解。</li>
 </ol>
 <p>通过这个过程，梯度下降算法能够逐渐找到最佳的 $\theta$ 值来最小化代价函数 $J(\theta)$，从而找到最佳的模型参数。</p>
+</blockquote>
 
     </article>
     <!-- license -->
