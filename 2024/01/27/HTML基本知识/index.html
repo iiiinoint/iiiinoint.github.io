@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Noint">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Noint">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="前端开发简介前端开发主要关注于创建网页和应用程序的用户界面。它包括展示给用户的所有内容和元素，如文本、图像、滑块以及交互式元素。前端开发的核心技术包括HTML、CSS和JavaScript，它们共同作用于浏览器中，提供丰富的用户体验。 1.1 HTML基础HTML（超文本标记语言）是网页的骨架。它用于结构化信息，如定义段落、标题和链接。 示例代码： 1234567891011&lt;!DOCTYP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML基本知识">
+<meta property="og:url" content="http://noint.top/2024/01/27/HTML%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前端开发简介前端开发主要关注于创建网页和应用程序的用户界面。它包括展示给用户的所有内容和元素，如文本、图像、滑块以及交互式元素。前端开发的核心技术包括HTML、CSS和JavaScript，它们共同作用于浏览器中，提供丰富的用户体验。 1.1 HTML基础HTML（超文本标记语言）是网页的骨架。它用于结构化信息，如定义段落、标题和链接。 示例代码： 1234567891011&lt;!DOCTYP">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://noint.top/2024/01/27/HTML%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/html.png">
+<meta property="article:published_time" content="2024-01-27T08:18:35.000Z">
+<meta property="article:modified_time" content="2024-01-27T08:28:12.651Z">
+<meta property="article:author" content="Noint">
+<meta property="article:tag" content="Computer Science">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://noint.top/2024/01/27/HTML%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/html.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/cat.ico">
+    
+    <title>HTML基本知识 · Noint&#39;s Studio</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- Google tag (gtag.js) -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>Noint's Studio.</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">Noint&#39;s Studio.</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">HTML基本知识</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+    
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                HTML基本知识
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        
+        
+            
+        
+        
+        <span class="post-category" data-categories="Computer Science"">
+            <i class="fas fa-folder post-category-icon"></i>
+            <span class="post-category-text">
+                Computer Science
+            </span>
+        </span>
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Computer Science">Computer Science</a>
+    
+</div>
+
+                
+                <!-- 文章字数统计 -->
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">2.2k</span>Reading time: <span class="post-count reading-time">9 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2024/01/27</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="前端开发简介"><a href="#前端开发简介" class="headerlink" title="前端开发简介"></a>前端开发简介</h2><p>前端开发主要关注于创建网页和应用程序的用户界面。它包括展示给用户的所有内容和元素，如文本、图像、滑块以及交互式元素。前端开发的核心技术包括HTML、CSS和JavaScript，它们共同作用于浏览器中，提供丰富的用户体验。</p>
+<h3 id="1-1-HTML基础"><a href="#1-1-HTML基础" class="headerlink" title="1.1 HTML基础"></a>1.1 HTML基础</h3><p>HTML（超文本标记语言）是网页的骨架。它用于结构化信息，如定义段落、标题和链接。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>我的网页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>欢迎来到我的网站<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.zju.edu.cn&quot;</span>&gt;</span>访问浙江大学<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这段代码展示了一个简单的HTML结构，包括头部（head）、标题（title）、正文（body）、标题标签（h1）、段落标签（p）和链接（a）。</p>
+<p><img src="/2024/01/27/HTML%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/html.png" alt="html"></p>
+<h3 id="1-2-CSS基础"><a href="#1-2-CSS基础" class="headerlink" title="1.2 CSS基础"></a>1.2 CSS基础</h3><p>CSS（层叠样式表）用于设计和美化HTML元素。通过CSS，可以调整字体、颜色、间距和布局等。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: Arial, sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段CSS代码设置了网页的字体，并为标题（h1）和段落（p）分别设置了颜色。</p>
+<h2 id="JavaScript的基础与应用"><a href="#JavaScript的基础与应用" class="headerlink" title="JavaScript的基础与应用"></a>JavaScript的基础与应用</h2><p>JavaScript是一种动态编程语言，用于为网页添加交互性。它允许开发者实现复杂的功能，如响应用户的输入、动态更新内容和与后端服务器通信。</p>
+<h3 id="2-1-JavaScript基础"><a href="#2-1-JavaScript基础" class="headerlink" title="2.1 JavaScript基础"></a>2.1 JavaScript基础</h3><p>JavaScript可以直接嵌入HTML中，或作为独立的文件引入。它用于操控DOM（文档对象模型），实现动态效果和交互功能。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JavaScript示例<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;clickMe&quot;</span>&gt;</span>点击我<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;displayText&quot;</span>&gt;</span>欢迎来到我的网站<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;clickMe&quot;</span>).<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;displayText&quot;</span>).<span class="property">innerHTML</span> = <span class="string">&quot;按钮被点击！&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这段代码创建了一个按钮和一个段落。当用户点击按钮时，JavaScript代码会更改段落中的文本。</p>
+<h3 id="2-2-使用React和TypeScript"><a href="#2-2-使用React和TypeScript" class="headerlink" title="2.2 使用React和TypeScript"></a>2.2 使用React和TypeScript</h3><p>React是一个用于构建用户界面的JavaScript库，特别适合构建大型、高性能的单页应用。TypeScript是JavaScript的一个超集，它添加了类型系统和其他功能，有助于提高代码的可维护性和可靠性。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">App</span>: <span class="title class_">React</span>.<span class="property">FC</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>你点击了 &#123;count&#125; 次<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;</span></span><br><span class="line"><span class="language-xml">                点击我</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这段TypeScript代码展示了一个简单的React组件。它使用了React的<code>useState</code>钩子来创建一个状态变量<code>count</code>。每当按钮被点击时，<code>count</code>就会增加，并更新显示的次数。</p>
+<h2 id="网页综合应用"><a href="#网页综合应用" class="headerlink" title="网页综合应用"></a>网页综合应用</h2><p>在现代前端开发中，将不同的技术结合起来是非常重要的。通过这种方式，可以创建出既美观又功能强大的网页应用。</p>
+<h3 id="3-1-动态样式与响应式设计"><a href="#3-1-动态样式与响应式设计" class="headerlink" title="3.1 动态样式与响应式设计"></a>3.1 动态样式与响应式设计</h3><p>通过结合HTML、CSS和JavaScript，可以创建出既有动态交互又适应不同屏幕大小的网页。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">600px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">body</span> &#123;</span><br><span class="line">        <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段CSS使用了媒体查询，当屏幕宽度小于600px时，背景色会变成浅蓝色，这是响应式设计的一个简单示例。</p>
+<h3 id="3-2-在React中使用CSS和TypeScript"><a href="#3-2-在React中使用CSS和TypeScript" class="headerlink" title="3.2 在React中使用CSS和TypeScript"></a>3.2 在React中使用CSS和TypeScript</h3><p>在React项目中，可以利用TypeScript的类型系统来增强组件的可读性和可维护性。同时，CSS可以用于美化组件。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./App.css&#x27;</span>; <span class="comment">// 导入CSS文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">AppProps</span> &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">App</span>: <span class="title class_">React</span>.<span class="property">FC</span>&lt;<span class="title class_">AppProps</span>&gt; = <span class="function">(<span class="params">&#123; title &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span>&#123;title&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在这个React组件中，我们定义了一个<code>AppProps</code>接口来指定<code>title</code>属性的类型。同时，通过导入CSS文件来为组件添加样式。</p>
+<h3 id="3-3-JavaScript和React的动态交互"><a href="#3-3-JavaScript和React的动态交互" class="headerlink" title="3.3 JavaScript和React的动态交互"></a>3.3 JavaScript和React的动态交互</h3><p>结合JavaScript和React，可以创建出用户交互性非常丰富的应用。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">InteractiveComponent</span>: <span class="title class_">React</span>.<span class="property">FC</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [data, setData] = <span class="title function_">useState</span>(<span class="string">&quot;初始数据&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">handleChange</span> = (<span class="params">event: React.ChangeEvent&lt;HTMLInputElement&gt;</span>) =&gt; &#123;</span><br><span class="line">        <span class="title function_">setData</span>(event.<span class="property">target</span>.<span class="property">value</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&#123;data&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;handleChange&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>输入的数据是: &#123;data&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">InteractiveComponent</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个React组件包含一个输入框，用户输入的内容会实时显示在下方。这展示了React中状态管理和事件处理的基本用法。</p>
+<h2 id="高级前端开发应用"><a href="#高级前端开发应用" class="headerlink" title="高级前端开发应用"></a>高级前端开发应用</h2><p>在前端开发的更高级应用中，重要的是理解如何构建可维护、可扩展且高性能的应用。</p>
+<h3 id="4-1-组件化和模块化"><a href="#4-1-组件化和模块化" class="headerlink" title="4.1 组件化和模块化"></a>4.1 组件化和模块化</h3><p>在React开发中，组件化是关键。它允许开发者将界面拆分为可重用的部分，使代码更加清晰和易于维护。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">GreetingProps</span> &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Greeting</span>: <span class="title class_">React</span>.<span class="property">FC</span>&lt;<span class="title class_">GreetingProps</span>&gt; = <span class="function">(<span class="params">&#123; name &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好, &#123;name&#125;!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Greeting</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个简单的React组件接收一个<code>name</code>属性，并显示一条问候信息。通过将这种组件化的方法应用于更大的应用，可以大大提高代码的可读性和可维护性。</p>
+<h3 id="4-2-状态管理"><a href="#4-2-状态管理" class="headerlink" title="4.2 状态管理"></a>4.2 状态管理</h3><p>在复杂的React应用中，合理管理状态是至关重要的。使用如Redux或Context API等工具可以帮助管理跨组件的状态。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState, createContext, useContext &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">CountContext</span> = <span class="title function_">createContext</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Counter</span>: <span class="title class_">React</span>.<span class="property">FC</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">CountContext.Provider</span> <span class="attr">value</span>=<span class="string">&#123;count&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>当前计数: &#123;count&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;增加<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Display</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">CountContext.Provider</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Display</span>: <span class="title class_">React</span>.<span class="property">FC</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> count = <span class="title function_">useContext</span>(<span class="title class_">CountContext</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>显示计数: &#123;count&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Counter</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个示例使用了React的Context API来共享状态（在这个例子中是计数值）跨不同组件。</p>
+<h3 id="4-3-性能优化"><a href="#4-3-性能优化" class="headerlink" title="4.3 性能优化"></a>4.3 性能优化</h3><p>性能优化是高级前端开发的一个重要方面。这包括减少不必要的渲染，优化资源加载，以及使用代码拆分来减少初始加载时间。</p>
+<p><strong>示例代码：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useMemo &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">HeavyComponent</span>: <span class="title class_">React</span>.<span class="property">FC</span>&lt;&#123; <span class="attr">list</span>: <span class="built_in">number</span>[] &#125;&gt; = <span class="function">(<span class="params">&#123; list &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> sortedList = <span class="title function_">useMemo</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line">    &#125;, [list]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;sortedList.map(item =&gt; <span class="tag">&lt;<span class="name">p</span> <span class="attr">key</span>=<span class="string">&#123;item&#125;</span>&gt;</span>&#123;item&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>)&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">HeavyComponent</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个组件通过<code>useMemo</code>钩子来优化性能，它仅在<code>list</code>属性发生变化时才重新计算排序后的列表。</p>
+<h2 id="前端开发的未来趋势"><a href="#前端开发的未来趋势" class="headerlink" title="前端开发的未来趋势"></a>前端开发的未来趋势</h2><p>前端开发领域一直在快速进化，新技术和方法的出现不断地改变着这个领域的面貌。</p>
+<h3 id="5-1-进一步的框架和库的演化"><a href="#5-1-进一步的框架和库的演化" class="headerlink" title="5.1 进一步的框架和库的演化"></a>5.1 进一步的框架和库的演化</h3><p>React、Vue和Angular等现代前端框架将继续演化，提供更多的功能和更好的性能。我们可以预期框架会更加注重性能优化，易用性，以及与新兴技术的兼容性，如WebAssembly和服务器端渲染。</p>
+<h3 id="5-2-增强的状态管理工具"><a href="#5-2-增强的状态管理工具" class="headerlink" title="5.2 增强的状态管理工具"></a>5.2 增强的状态管理工具</h3><p>随着前端应用变得越来越复杂，状态管理将成为一个关键点。工具如Redux、MobX和新兴的React Context API等将继续发展，以支持更高效和更易于管理的状态管理模式。</p>
+<h3 id="5-3-静态网站生成器的兴起"><a href="#5-3-静态网站生成器的兴起" class="headerlink" title="5.3 静态网站生成器的兴起"></a>5.3 静态网站生成器的兴起</h3><p>静态网站生成器（如Gatsby和Next.js）在构建高性能网站方面越来越受欢迎。它们利用预渲染技术，提高了网站的加载速度和搜索引擎优化（SEO）。</p>
+<h3 id="5-4-JAMstack的流行"><a href="#5-4-JAMstack的流行" class="headerlink" title="5.4 JAMstack的流行"></a>5.4 JAMstack的流行</h3><p>JAMstack（JavaScript、APIs和Markup的简称）正变得越来越流行，它强调完全使用客户端JavaScript，可重用APIs，和预构建的Markup，以提高性能，减少安全风险，并改善开发者体验。</p>
+<h3 id="5-5-WebAssembly的崛起"><a href="#5-5-WebAssembly的崛起" class="headerlink" title="5.5 WebAssembly的崛起"></a>5.5 WebAssembly的崛起</h3><p>WebAssembly为前端开发带来了新的可能性，允许在浏览器中运行其他编程语言编写的代码。这为高性能计算任务和图形密集型应用打开了新的大门。</p>
+<h3 id="5-6-响应式设计和无障碍性"><a href="#5-6-响应式设计和无障碍性" class="headerlink" title="5.6 响应式设计和无障碍性"></a>5.6 响应式设计和无障碍性</h3><p>随着各种设备的普及，响应式设计和无障碍性将继续成为重要的话题。开发者需要确保网站和应用在所有设备上都能提供优秀的用户体验，并且对所有用户都是可访问的。</p>
+
+    </article>
+    <!-- license -->
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2024/01/26/Swift%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Swift语言学习笔记">
+                    <div class="prevTitle">Swift语言学习笔记</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+        
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+
+
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:nointiiii@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/iiiinoint" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+        <div class="website-approve">
+            
+            
+        </div>
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">前端开发简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-HTML%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 HTML基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-CSS%E5%9F%BA%E7%A1%80"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 CSS基础</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript%E7%9A%84%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">JavaScript的基础与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-JavaScript%E5%9F%BA%E7%A1%80"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 JavaScript基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%BD%BF%E7%94%A8React%E5%92%8CTypeScript"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 使用React和TypeScript</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">网页综合应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%8A%A8%E6%80%81%E6%A0%B7%E5%BC%8F%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 动态样式与响应式设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%9C%A8React%E4%B8%AD%E4%BD%BF%E7%94%A8CSS%E5%92%8CTypeScript"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 在React中使用CSS和TypeScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-JavaScript%E5%92%8CReact%E7%9A%84%E5%8A%A8%E6%80%81%E4%BA%A4%E4%BA%92"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 JavaScript和React的动态交互</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">高级前端开发应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E7%BB%84%E4%BB%B6%E5%8C%96%E5%92%8C%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 组件化和模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 状态管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 性能优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84%E6%9C%AA%E6%9D%A5%E8%B6%8B%E5%8A%BF"><span class="toc-number">5.</span> <span class="toc-text">前端开发的未来趋势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E6%A1%86%E6%9E%B6%E5%92%8C%E5%BA%93%E7%9A%84%E6%BC%94%E5%8C%96"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 进一步的框架和库的演化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%A2%9E%E5%BC%BA%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 增强的状态管理工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8%E7%9A%84%E5%85%B4%E8%B5%B7"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 静态网站生成器的兴起</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-JAMstack%E7%9A%84%E6%B5%81%E8%A1%8C"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 JAMstack的流行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-WebAssembly%E7%9A%84%E5%B4%9B%E8%B5%B7"><span class="toc-number">5.5.</span> <span class="toc-text">5.5 WebAssembly的崛起</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%97%A0%E9%9A%9C%E7%A2%8D%E6%80%A7"><span class="toc-number">5.6.</span> <span class="toc-text">5.6 响应式设计和无障碍性</span></a></li></ol></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 9
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2024 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/27</span>
+            <a class="archive-post-title" href="/2024/01/27/HTML%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">HTML基本知识</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/26</span>
+            <a class="archive-post-title" href="/2024/01/26/Swift%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Swift语言学习笔记</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2023 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span>
+            <a class="archive-post-title" href="/2023/12/03/Classification/">Classification</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/02</span>
+            <a class="archive-post-title" href="/2023/12/02/Gradient-Descent/">Gradient Descent</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span>
+            <a class="archive-post-title" href="/2023/12/01/Regression-Analysis/">Regression Analysis</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span>
+            <a class="archive-post-title" href="/2023/12/01/ChatGPT%E6%98%AF%E6%80%8E%E4%B9%88%E7%82%BC%E6%88%90%E7%9A%84/">ChatGPT是怎么炼成的</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/11</span>
+            <a class="archive-post-title" href="/2023/11/11/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E7%9A%84%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%88%86%E6%9E%90/">不同高级语言内存管理机制的汇编语言分析</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/17</span>
+            <a class="archive-post-title" href="/2023/10/17/Hazards-in-Pipelined-CPU/">Hazards in Pipelined CPU</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/11</span>
+            <a class="archive-post-title" href="/2023/10/11/hello-world/">Hello World</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="Machine Learning">
+                <span class="iconfont-archer">&#xe606;</span>
+                Machine Learning
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Computer Science">
+                <span class="iconfont-archer">&#xe606;</span>
+                Computer Science
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Machine Learning">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Machine Learning
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Computer Science">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Computer Science
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Computer Organization and Design">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Computer Organization and Design
+        </span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "http://noint.top",
+        root: siteMetaRoot,
+        author: "Noint"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+            <script src='https://cdn.jsdelivr.net/npm/mermaid@8.11.0/dist/mermaid.min.js'></script>
+            <script>
+                if (window.mermaid) {
+                    mermaid.initialize({theme: 'dark'});
+                }
+            </script>
+        
+    </body>
+</html>
