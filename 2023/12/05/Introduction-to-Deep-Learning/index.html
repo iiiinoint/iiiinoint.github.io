@@ -19,29 +19,23 @@
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类： 一、数据冲突（Data Hazards）数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。  Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器R1写入数据，而第二条指令需要从R1读取数据。  解决方法：数据前推">
+    <meta name="description" content="深度学习的基本概念深度学习的核心是深度神经网络（DNNs），它们是由多层神经元组成的网络结构。每一层由多个神经元组成，这些神经元接收来自前一层的输入，并产生输出到下一层。最简单的神经网络是感知器（Perceptron），它是一个单层的网络结构。 神经元（Neuron）神经元是构成神经网络的基本单元。每个神经元接收来自其他神经元的输入信号，然后处理这些信号，并产生输出。数学上，一个神经元的操作可以表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hazards in Pipelined CPU">
-<meta property="og:url" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/index.html">
+<meta property="og:title" content="Introduction to Deep Learning">
+<meta property="og:url" content="http://noint.top/2023/12/05/Introduction-to-Deep-Learning/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类： 一、数据冲突（Data Hazards）数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。  Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器R1写入数据，而第二条指令需要从R1读取数据。  解决方法：数据前推">
+<meta property="og:description" content="深度学习的基本概念深度学习的核心是深度神经网络（DNNs），它们是由多层神经元组成的网络结构。每一层由多个神经元组成，这些神经元接收来自前一层的输入，并产生输出到下一层。最简单的神经网络是感知器（Perceptron），它是一个单层的网络结构。 神经元（Neuron）神经元是构成神经网络的基本单元。每个神经元接收来自其他神经元的输入信号，然后处理这些信号，并产生输出。数学上，一个神经元的操作可以表">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo1.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo2.png">
-<meta property="article:published_time" content="2023-10-17T02:42:18.000Z">
-<meta property="article:modified_time" content="2024-01-23T14:49:39.759Z">
+<meta property="article:published_time" content="2023-12-05T09:48:02.000Z">
+<meta property="article:modified_time" content="2024-01-27T09:54:45.377Z">
 <meta property="article:author" content="Noint">
-<meta property="article:tag" content="Computer Science">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/cat.ico">
     
-    <title>Hazards in Pipelined CPU · Noint&#39;s Studio</title>
+    <title>Introduction to Deep Learning · Noint&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -267,7 +261,7 @@
                 <a href="/">Noint&#39;s Studio.</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">Hazards in Pipelined CPU</a>
+                <a href="#" class="post-name">Introduction to Deep Learning</a>
             </div>
         </div>
     
@@ -313,7 +307,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                Hazards in Pipelined CPU
+                Introduction to Deep Learning
             <!-- 404 -->
             
         </h1>
@@ -336,18 +330,16 @@
         
             
         
-            
         
-        
-        <span class="post-category" data-categories="Computer Science/Computer Organization and Design"">
+        <span class="post-category" data-categories="Machine Learning"">
             <i class="fas fa-folder post-category-icon"></i>
             <span class="post-category-text">
-                Computer Science/Computer Organization and Design
+                Machine Learning
             </span>
         </span>
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Computer Science">Computer Science</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Machine Learning">Machine Learning</a>
     
 </div>
 
@@ -355,13 +347,13 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">819</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">838</span>Reading time: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2023/10/17</span>
+                    <span class="post-intro-time">2023/12/05</span>
                     <!-- busuanzi -->
                     
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
@@ -516,56 +508,31 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <p>在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类：</p>
-<h2 id="一、数据冲突（Data-Hazards）"><a href="#一、数据冲突（Data-Hazards）" class="headerlink" title="一、数据冲突（Data Hazards）"></a>一、数据冲突（Data Hazards）</h2><p>数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。</p>
+        <h2 id="深度学习的基本概念"><a href="#深度学习的基本概念" class="headerlink" title="深度学习的基本概念"></a>深度学习的基本概念</h2><p>深度学习的核心是深度神经网络（DNNs），它们是由多层神经元组成的网络结构。每一层由多个神经元组成，这些神经元接收来自前一层的输入，并产生输出到下一层。最简单的神经网络是感知器（Perceptron），它是一个单层的网络结构。</p>
+<h3 id="神经元（Neuron）"><a href="#神经元（Neuron）" class="headerlink" title="神经元（Neuron）"></a>神经元（Neuron）</h3><p>神经元是构成神经网络的基本单元。每个神经元接收来自其他神经元的输入信号，然后处理这些信号，并产生输出。数学上，一个神经元的操作可以表示为：</p>
+<p>$$ f(x) &#x3D; \phi\left(\sum_{i&#x3D;1}^n w_i x_i + b\right) $$</p>
+<p>其中，$x_1, x_2, …, x_n$ 是输入，$w_1, w_2, …, w_n$ 是权重，$b$ 是偏置项，$\phi$ 是激活函数。</p>
+<h3 id="激活函数（Activation-Function）"><a href="#激活函数（Activation-Function）" class="headerlink" title="激活函数（Activation Function）"></a>激活函数（Activation Function）</h3><p>激活函数是用来加入非线性因素的函数，使得神经网络可以学习更复杂的模式。常见的激活函数有Sigmoid函数、ReLU函数等。</p>
 <ul>
-<li>Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器<code>R1</code>写入数据，而第二条指令需要从<code>R1</code>读取数据。</li>
+<li>Sigmoid函数：$\sigma(x) &#x3D; \frac{1}{1 + e^{-x}}$</li>
+<li>ReLU函数：$ReLU(x) &#x3D; max(0, x)$</li>
 </ul>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>数据前推（Data Forwarding）或者暂停（Stalling）。</p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png" alt="截屏2023-10-17 11.01.05"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png" alt="截屏2023-10-17 11.03.06"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png" alt="截屏2023-10-17 11.04.16"></p>
-<h2 id="二、控制冲突（Control-Hazards）"><a href="#二、控制冲突（Control-Hazards）" class="headerlink" title="二、控制冲突（Control Hazards）"></a>二、控制冲突（Control Hazards）</h2><p>控制冲突发生在分支指令处，因为在分支指令的目标地址计算完成之前，后续要执行的指令是不确定的。</p>
+<h3 id="损失函数（Loss-Function）"><a href="#损失函数（Loss-Function）" class="headerlink" title="损失函数（Loss Function）"></a>损失函数（Loss Function）</h3><p>损失函数用于评估神经网络的性能。它计算了神经网络的预测值和实际值之间的差异。常见的损失函数包括均方误差（MSE）和交叉熵损失（Cross-Entropy Loss）。</p>
 <ul>
-<li><strong>Branch prediction</strong>：通过预测分支的结果，可以尝试解决这种冲突。</li>
+<li>均方误差：$MSE &#x3D; \frac{1}{n}\sum_{i&#x3D;1}^n(y_i - \hat{y}_i)^2$</li>
+<li>交叉熵损失：$CE &#x3D; -\sum_{i&#x3D;1}^n y_i \log(\hat{y}_i)$</li>
 </ul>
-<h3 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h3><p>分支预测（Branch Prediction），分支目标缓冲器（BTB，Branch Target Buffer）等。</p>
-<p>分支预测是解决控制冲突（Control Hazards）中的一种常用技术。当CPU遇到一个分支指令（例如，<code>if</code>，<code>while</code>，<code>for</code>等）时，它需要确定是跳转到新的地址还是继续按照原有的指令顺序执行。分支预测的任务就是预测这个决定，从而允许CPU在不等待分支指令实际执行完成的情况下继续填充和执行流水线。</p>
-<blockquote>
-<p> <strong>常见的分支预测方法：</strong></p>
-<ol>
-<li><strong>静态分支预测</strong>：不依赖于程序的运行时行为。例如，始终预测分支为“Taken”（会跳转）或“Not Taken”（不会跳转）。</li>
-<li><strong>动态分支预测</strong>：<ul>
-<li><strong>一位动态预测器</strong>：使用一位（0或1）来记录最近一次分支的结果。</li>
-<li><strong>两位饱和计数器</strong>：使用两位来更精确地记录分支的历史行为。</li>
-<li><strong>分支目标缓冲区（BTB）</strong>：存储分支指令的目标地址。</li>
-<li><strong>局部和全局预测器</strong>：使用局部和全局的历史信息来进行更准确的预测。</li>
-</ul>
-</li>
-<li><strong>混合分支预测器</strong>：结合多种预测方法，选择最有可能准确的一个。</li>
-</ol>
-</blockquote>
-<h2 id="三、结构冲突（Structural-Hazards）"><a href="#三、结构冲突（Structural-Hazards）" class="headerlink" title="三、结构冲突（Structural Hazards）"></a>三、结构冲突（Structural Hazards）</h2><p>当多个指令需要使用同一硬件资源时，就会发生结构冲突。</p>
+<h2 id="深度学习的数学原理"><a href="#深度学习的数学原理" class="headerlink" title="深度学习的数学原理"></a>深度学习的数学原理</h2><h3 id="反向传播（Backpropagation）"><a href="#反向传播（Backpropagation）" class="headerlink" title="反向传播（Backpropagation）"></a>反向传播（Backpropagation）</h3><p>反向传播是用于训练神经网络的核心算法。它通过计算损失函数相对于网络参数的梯度来更新网络中的权重和偏置。这个过程可以通过链式法则来计算梯度。</p>
+<p>设$l$为损失函数，$w$为权重，反向传播的梯度计算为：</p>
+<p>$$ \frac{\partial l}{\partial w} &#x3D; \frac{\partial l}{\partial y}\frac{\partial y}{\partial w} $$</p>
+<h3 id="优化算法（Optimization-Algorithms）"><a href="#优化算法（Optimization-Algorithms）" class="headerlink" title="优化算法（Optimization Algorithms）"></a>优化算法（Optimization Algorithms）</h3><p>优化算法用于更新神经网络的权重和偏置，以最小化损失函数。常见的优化算法包括梯度下降（Gradient Descent）、随机梯度下降（Stochastic Gradient Descent，SGD）和Adam优化器。</p>
 <ul>
-<li>例如，如果有一个指令在访问数据存储器（Data Memory）以加载数据，同时另一个指令也需要访问数据存储器以存储数据，那么就会出现结构冲突。</li>
+<li>梯度下降：$w &#x3D; w - \eta \cdot \nabla_w l$</li>
+<li>随机梯度下降：在梯度下降的基础上，每次更新只使用一个样本来计算梯度。</li>
+<li>Adam优化器：结合了动量（Momentum）和RMSprop的优化算法。</li>
 </ul>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo1.png" alt="截屏2023-10-17 10.52.40"></p>
-<h3 id="解决方法：-2"><a href="#解决方法：-2" class="headerlink" title="解决方法："></a>解决方法：</h3><p>可以通过硬件复制或时间多路复用等方法来解决。</p>
-<h4 id="多次访问内存"><a href="#多次访问内存" class="headerlink" title="多次访问内存"></a>多次访问内存</h4><ul>
-<li>解决方案包括分割指令和数据内存、使用多个内存端口或指令缓冲器。</li>
-<li>需要通过提高内存带宽（至少5倍）来改善性能。</li>
-</ul>
-<h4 id="多次访问寄存器文件"><a href="#多次访问寄存器文件" class="headerlink" title="多次访问寄存器文件"></a>多次访问寄存器文件</h4><ul>
-<li>双倍增速（Double Bump）：通过增加寄存器文件的访问速度或并行度来解决。</li>
-</ul>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo2.png" alt="截屏2023-10-17 10.55.34"></p>
-<h4 id="非全流水线功能单元"><a href="#非全流水线功能单元" class="headerlink" title="非全流水线功能单元"></a>非全流水线功能单元</h4><ul>
-<li>解决方案包括将功能单元全流水线化。</li>
-<li>使用多个功能单元进行操作。</li>
-</ul>
-<h4 id="实际机器常常存在结构冲突"><a href="#实际机器常常存在结构冲突" class="headerlink" title="实际机器常常存在结构冲突"></a>实际机器常常存在结构冲突</h4><ul>
-<li>在现实世界的机器中，结构冲突是一个普遍存在的问题，需要综合考虑多种策略来进行优化。</li>
-</ul>
+<h2 id="深度学习的应用"><a href="#深度学习的应用" class="headerlink" title="深度学习的应用"></a>深度学习的应用</h2><p>深度学习在众多领域都有广泛应用，包括图像识别、自然语言处理、游戏、机器人技术等。通过深度学习，计算机可以实现对复杂数据的高效处理和分析，从而在许多领域实现突破性的进展。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>深度学习是一种强大的机器学习方法，它通过模拟人脑处理信息的方式，使得计算机能够学习和识别复杂的模式。其背后的数学原理包括神经元的线性组合、非线性激活函数、损失函数的优化，以及通过反向传播算法进行的权重更新。这些原理共同构成了深度学习的理论基础，使其在各个领域都有着广泛的应用和显著的成果。</p>
 
     </article>
     <!-- license -->
@@ -575,16 +542,16 @@
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2023/11/11/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E7%9A%84%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%88%86%E6%9E%90/" title="不同高级语言内存管理机制的汇编语言分析">
-                    <div class="nextTitle">不同高级语言内存管理机制的汇编语言分析</div>
+                <a href="/2023/12/05/Introduction-to-Generative-Learning/" title="Introduction to Generative Learning">
+                    <div class="nextTitle">Introduction to Generative Learning</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2023/10/11/hello-world/" title="Hello World">
-                    <div class="prevTitle">Hello World</div>
+                <a href="/2023/12/03/Classification/" title="Classification">
+                    <div class="prevTitle">Classification</div>
                 </a>
             
         </li>
@@ -619,6 +586,21 @@
     <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
     
     <!-- Mathjax -->
+    
+        
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+
+
     
 </main>
 
@@ -729,7 +711,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E5%86%B2%E7%AA%81%EF%BC%88Data-Hazards%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、数据冲突（Data Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8E%A7%E5%88%B6%E5%86%B2%E7%AA%81%EF%BC%88Control-Hazards%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、控制冲突（Control Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A-1"><span class="toc-number">2.1.</span> <span class="toc-text">解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BB%93%E6%9E%84%E5%86%B2%E7%AA%81%EF%BC%88Structural-Hazards%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">三、结构冲突（Structural Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A-2"><span class="toc-number">3.1.</span> <span class="toc-text">解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E8%AE%BF%E9%97%AE%E5%86%85%E5%AD%98"><span class="toc-number">3.1.1.</span> <span class="toc-text">多次访问内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E8%AE%BF%E9%97%AE%E5%AF%84%E5%AD%98%E5%99%A8%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.2.</span> <span class="toc-text">多次访问寄存器文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E5%85%A8%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%8A%9F%E8%83%BD%E5%8D%95%E5%85%83"><span class="toc-number">3.1.3.</span> <span class="toc-text">非全流水线功能单元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E5%B8%B8%E5%B8%B8%E5%AD%98%E5%9C%A8%E7%BB%93%E6%9E%84%E5%86%B2%E7%AA%81"><span class="toc-number">3.1.4.</span> <span class="toc-text">实际机器常常存在结构冲突</span></a></li></ol></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">深度学习的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E5%85%83%EF%BC%88Neuron%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">神经元（Neuron）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%EF%BC%88Activation-Function%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">激活函数（Activation Function）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%EF%BC%88Loss-Function%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">损失函数（Loss Function）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">深度学习的数学原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%EF%BC%88Backpropagation%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">反向传播（Backpropagation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%EF%BC%88Optimization-Algorithms%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">优化算法（Optimization Algorithms）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">深度学习的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
             </div>
         
         <!-- sidebar -->

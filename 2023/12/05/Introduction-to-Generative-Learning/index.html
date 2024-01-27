@@ -19,29 +19,23 @@
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类： 一、数据冲突（Data Hazards）数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。  Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器R1写入数据，而第二条指令需要从R1读取数据。  解决方法：数据前推">
+    <meta name="description" content="生成学习的基本概念生成学习的核心思想是学习样本数据的概率分布。一旦学习到这种分布，就可以生成新的、与原始数据类似的样本。生成模型通常包括基于概率的模型，如高斯混合模型（Gaussian Mixture Model, GMM），和近年来流行的基于神经网络的模型，如生成对抗网络（Generative Adversarial Networks, GANs）和变分自编码器（Variational Auto">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hazards in Pipelined CPU">
-<meta property="og:url" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/index.html">
+<meta property="og:title" content="Introduction to Generative Learning">
+<meta property="og:url" content="http://noint.top/2023/12/05/Introduction-to-Generative-Learning/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类： 一、数据冲突（Data Hazards）数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。  Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器R1写入数据，而第二条指令需要从R1读取数据。  解决方法：数据前推">
+<meta property="og:description" content="生成学习的基本概念生成学习的核心思想是学习样本数据的概率分布。一旦学习到这种分布，就可以生成新的、与原始数据类似的样本。生成模型通常包括基于概率的模型，如高斯混合模型（Gaussian Mixture Model, GMM），和近年来流行的基于神经网络的模型，如生成对抗网络（Generative Adversarial Networks, GANs）和变分自编码器（Variational Auto">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo1.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo2.png">
-<meta property="article:published_time" content="2023-10-17T02:42:18.000Z">
-<meta property="article:modified_time" content="2024-01-23T14:49:39.759Z">
+<meta property="article:published_time" content="2023-12-05T10:55:15.000Z">
+<meta property="article:modified_time" content="2024-01-27T10:01:59.511Z">
 <meta property="article:author" content="Noint">
-<meta property="article:tag" content="Computer Science">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/cat.ico">
     
-    <title>Hazards in Pipelined CPU · Noint&#39;s Studio</title>
+    <title>Introduction to Generative Learning · Noint&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -267,7 +261,7 @@
                 <a href="/">Noint&#39;s Studio.</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">Hazards in Pipelined CPU</a>
+                <a href="#" class="post-name">Introduction to Generative Learning</a>
             </div>
         </div>
     
@@ -313,7 +307,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                Hazards in Pipelined CPU
+                Introduction to Generative Learning
             <!-- 404 -->
             
         </h1>
@@ -336,18 +330,16 @@
         
             
         
-            
         
-        
-        <span class="post-category" data-categories="Computer Science/Computer Organization and Design"">
+        <span class="post-category" data-categories="Machine Learning"">
             <i class="fas fa-folder post-category-icon"></i>
             <span class="post-category-text">
-                Computer Science/Computer Organization and Design
+                Machine Learning
             </span>
         </span>
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Computer Science">Computer Science</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Machine Learning">Machine Learning</a>
     
 </div>
 
@@ -355,13 +347,13 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">819</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.2k</span>Reading time: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2023/10/17</span>
+                    <span class="post-intro-time">2023/12/05</span>
                     <!-- busuanzi -->
                     
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
@@ -516,56 +508,37 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <p>在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类：</p>
-<h2 id="一、数据冲突（Data-Hazards）"><a href="#一、数据冲突（Data-Hazards）" class="headerlink" title="一、数据冲突（Data Hazards）"></a>一、数据冲突（Data Hazards）</h2><p>数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。</p>
-<ul>
-<li>Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器<code>R1</code>写入数据，而第二条指令需要从<code>R1</code>读取数据。</li>
-</ul>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>数据前推（Data Forwarding）或者暂停（Stalling）。</p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png" alt="截屏2023-10-17 11.01.05"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png" alt="截屏2023-10-17 11.03.06"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png" alt="截屏2023-10-17 11.04.16"></p>
-<h2 id="二、控制冲突（Control-Hazards）"><a href="#二、控制冲突（Control-Hazards）" class="headerlink" title="二、控制冲突（Control Hazards）"></a>二、控制冲突（Control Hazards）</h2><p>控制冲突发生在分支指令处，因为在分支指令的目标地址计算完成之前，后续要执行的指令是不确定的。</p>
-<ul>
-<li><strong>Branch prediction</strong>：通过预测分支的结果，可以尝试解决这种冲突。</li>
-</ul>
-<h3 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h3><p>分支预测（Branch Prediction），分支目标缓冲器（BTB，Branch Target Buffer）等。</p>
-<p>分支预测是解决控制冲突（Control Hazards）中的一种常用技术。当CPU遇到一个分支指令（例如，<code>if</code>，<code>while</code>，<code>for</code>等）时，它需要确定是跳转到新的地址还是继续按照原有的指令顺序执行。分支预测的任务就是预测这个决定，从而允许CPU在不等待分支指令实际执行完成的情况下继续填充和执行流水线。</p>
-<blockquote>
-<p> <strong>常见的分支预测方法：</strong></p>
-<ol>
-<li><strong>静态分支预测</strong>：不依赖于程序的运行时行为。例如，始终预测分支为“Taken”（会跳转）或“Not Taken”（不会跳转）。</li>
-<li><strong>动态分支预测</strong>：<ul>
-<li><strong>一位动态预测器</strong>：使用一位（0或1）来记录最近一次分支的结果。</li>
-<li><strong>两位饱和计数器</strong>：使用两位来更精确地记录分支的历史行为。</li>
-<li><strong>分支目标缓冲区（BTB）</strong>：存储分支指令的目标地址。</li>
-<li><strong>局部和全局预测器</strong>：使用局部和全局的历史信息来进行更准确的预测。</li>
-</ul>
-</li>
-<li><strong>混合分支预测器</strong>：结合多种预测方法，选择最有可能准确的一个。</li>
+        <h2 id="生成学习的基本概念"><a href="#生成学习的基本概念" class="headerlink" title="生成学习的基本概念"></a>生成学习的基本概念</h2><p>生成学习的核心思想是学习样本数据的概率分布。一旦学习到这种分布，就可以生成新的、与原始数据类似的样本。生成模型通常包括基于概率的模型，如高斯混合模型（Gaussian Mixture Model, GMM），和近年来流行的基于神经网络的模型，如生成对抗网络（Generative Adversarial Networks, GANs）和变分自编码器（Variational Autoencoders, VAEs）。</p>
+<h3 id="概率模型"><a href="#概率模型" class="headerlink" title="概率模型"></a>概率模型</h3><p>生成学习的一个关键方面是使用概率模型来描述数据。例如，假设我们有一个数据集${x^{(1)}, x^{(2)}, …, x^{(m)}}$，我们希望学习这个数据集的概率分布$p(x)$。</p>
+<p>对于简单的场景，可以考虑使用如高斯分布的参数化方法：</p>
+<p>$$ p(x; \mu, \sigma^2) &#x3D; \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$</p>
+<p>其中，$\mu$是均值，$\sigma^2$是方差。</p>
+<h3 id="高斯混合模型（GMM）"><a href="#高斯混合模型（GMM）" class="headerlink" title="高斯混合模型（GMM）"></a>高斯混合模型（GMM）</h3><p>高斯混合模型是一种常用的生成模型，它假设数据是由多个高斯分布混合而成的。其概率密度函数为：</p>
+<p>$$ p(x) &#x3D; \sum_{k&#x3D;1}^K \phi_k \mathcal{N}(x; \mu_k, \Sigma_k) $$</p>
+<p>这里，$K$是混合成分的数量，$\phi_k$是第$k$个成分的混合系数，$\mathcal{N}(x; \mu_k, \Sigma_k)$是以$\mu_k$为均值、$\Sigma_k$为协方差矩阵的多变量高斯分布。</p>
+<h2 id="基于神经网络的生成模型"><a href="#基于神经网络的生成模型" class="headerlink" title="基于神经网络的生成模型"></a>基于神经网络的生成模型</h2><h3 id="生成对抗网络（GANs）"><a href="#生成对抗网络（GANs）" class="headerlink" title="生成对抗网络（GANs）"></a>生成对抗网络（GANs）</h3><p>生成对抗网络由两部分组成：生成器（Generator）和判别器（Discriminator）。生成器负责生成数据，而判别器负责判断数据是真实的还是由生成器生成的。GAN的训练过程可以看作是一个博弈过程，生成器试图生成越来越逼真的数据，而判别器试图越来越准确地区分真实数据和生成数据。</p>
+<p>数学上，GAN的目标函数可以表示为：</p>
+<p>$$ \min_G \max_D V(D, G) &#x3D; \mathbb{E}<em>{x \sim p</em>{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] $$</p>
+<p>其中，$G$是生成器，$D$是判别器，$z$是从某种概率分布$p_z(z)$（通常是高斯分布）中采样的噪声。</p>
+<h3 id="变分自编码器（VAEs）"><a href="#变分自编码器（VAEs）" class="headerlink" title="变分自编码器（VAEs）"></a>变分自编码器（VAEs）</h3><p>变分自编码器是另一种流行的生成模型，它通过编码器将数据映射到一个潜在空间，并通过解码器从这个潜在空间生成数据。VAE的关键在于其损失函数，它包括重构误差和潜在</p>
+<p>空间的正则化项。</p>
+<p>VAE的损失函数由两部分组成：</p>
+<p>$$ \mathcal{L}(\theta, \phi; x) &#x3D; -\mathbb{E}_{z \sim q_\phi(z|x)}[\log p_\theta(x|z)] + KL(q_\phi(z|x) || p(z)) $$</p>
+<p>其中，第一项是重构误差，第二项是由编码器生成的潜在变量分布$q_\phi(z|x)$与先验分布$p(z)$（通常是标准正态分布）之间的Kullback-Leibler (KL) 散度。</p>
+<h2 id="当前最热门的生成式学习技术简介"><a href="#当前最热门的生成式学习技术简介" class="headerlink" title="当前最热门的生成式学习技术简介"></a>当前最热门的生成式学习技术简介</h2><ol>
+<li><strong>生成对抗网络（GANs）</strong>：GANs由两部分组成：生成器（Generator）和判别器（Discriminator）。生成器负责生成数据，判别器则区分真实数据与生成数据。GANs在图像生成、艺术创作等领域取得了显著成果。</li>
+<li><strong>变分自编码器（VAEs）</strong>：VAEs通过编码器将数据映射到潜在空间，并通过解码器从该空间生成数据。VAEs在图像重构、风格转换等方面表现出色。</li>
+<li><strong>自回归模型（如PixelRNN和PixelCNN）</strong>：这些模型通过学习像素之间的条件分布来生成图像。它们在图像生成的分辨率和质量方面取得了很好的效果。</li>
+<li><strong>Transformer模型（如GPT系列和BERT）</strong>：虽然最初用于自然语言处理，Transformer模型现在也被用于生成任务，如文本生成、图像生成等。</li>
+<li><strong>Diffusion Models</strong>：这是一种较新的生成模型，通过逐步添加噪声并学习逆过程来生成数据，特别在生成高质量图像方面显示了巨大潜力。</li>
 </ol>
-</blockquote>
-<h2 id="三、结构冲突（Structural-Hazards）"><a href="#三、结构冲突（Structural-Hazards）" class="headerlink" title="三、结构冲突（Structural Hazards）"></a>三、结构冲突（Structural Hazards）</h2><p>当多个指令需要使用同一硬件资源时，就会发生结构冲突。</p>
-<ul>
-<li>例如，如果有一个指令在访问数据存储器（Data Memory）以加载数据，同时另一个指令也需要访问数据存储器以存储数据，那么就会出现结构冲突。</li>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ul>
+<li><strong>图像和视频生成</strong>：从风格迁移到新图像的创建。</li>
+<li><strong>文本生成</strong>：如自动撰写文章、诗歌。</li>
+<li><strong>语音合成</strong>：如生成逼真的人声。</li>
+<li><strong>数据增强</strong>：在数据稀缺的情况下生成新数据。</li>
 </ul>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo1.png" alt="截屏2023-10-17 10.52.40"></p>
-<h3 id="解决方法：-2"><a href="#解决方法：-2" class="headerlink" title="解决方法："></a>解决方法：</h3><p>可以通过硬件复制或时间多路复用等方法来解决。</p>
-<h4 id="多次访问内存"><a href="#多次访问内存" class="headerlink" title="多次访问内存"></a>多次访问内存</h4><ul>
-<li>解决方案包括分割指令和数据内存、使用多个内存端口或指令缓冲器。</li>
-<li>需要通过提高内存带宽（至少5倍）来改善性能。</li>
-</ul>
-<h4 id="多次访问寄存器文件"><a href="#多次访问寄存器文件" class="headerlink" title="多次访问寄存器文件"></a>多次访问寄存器文件</h4><ul>
-<li>双倍增速（Double Bump）：通过增加寄存器文件的访问速度或并行度来解决。</li>
-</ul>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo2.png" alt="截屏2023-10-17 10.55.34"></p>
-<h4 id="非全流水线功能单元"><a href="#非全流水线功能单元" class="headerlink" title="非全流水线功能单元"></a>非全流水线功能单元</h4><ul>
-<li>解决方案包括将功能单元全流水线化。</li>
-<li>使用多个功能单元进行操作。</li>
-</ul>
-<h4 id="实际机器常常存在结构冲突"><a href="#实际机器常常存在结构冲突" class="headerlink" title="实际机器常常存在结构冲突"></a>实际机器常常存在结构冲突</h4><ul>
-<li>在现实世界的机器中，结构冲突是一个普遍存在的问题，需要综合考虑多种策略来进行优化。</li>
-</ul>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>生成学习是一个强大而多样的机器学习领域，它通过学习数据的概率分布来生成新的数据。从传统的概率模型到基于深度学习的复杂网络结构，生成学习在理论和应用上都取得了显著进展。无论是在图像生成、文本生成还是其他领域，生成学习都展示了其独特的价值和潜力。随着研究的深入和技术的发展，我们可以期待生成学习在未来会带来更多的创新和应用。</p>
 
     </article>
     <!-- license -->
@@ -575,16 +548,16 @@
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2023/11/11/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E7%9A%84%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%88%86%E6%9E%90/" title="不同高级语言内存管理机制的汇编语言分析">
-                    <div class="nextTitle">不同高级语言内存管理机制的汇编语言分析</div>
+                <a href="/2024/01/26/Swift%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Swift语言学习笔记">
+                    <div class="nextTitle">Swift语言学习笔记</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2023/10/11/hello-world/" title="Hello World">
-                    <div class="prevTitle">Hello World</div>
+                <a href="/2023/12/05/Introduction-to-Deep-Learning/" title="Introduction to Deep Learning">
+                    <div class="prevTitle">Introduction to Deep Learning</div>
                 </a>
             
         </li>
@@ -619,6 +592,21 @@
     <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
     
     <!-- Mathjax -->
+    
+        
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+
+
     
 </main>
 
@@ -729,7 +717,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E5%86%B2%E7%AA%81%EF%BC%88Data-Hazards%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、数据冲突（Data Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8E%A7%E5%88%B6%E5%86%B2%E7%AA%81%EF%BC%88Control-Hazards%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、控制冲突（Control Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A-1"><span class="toc-number">2.1.</span> <span class="toc-text">解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BB%93%E6%9E%84%E5%86%B2%E7%AA%81%EF%BC%88Structural-Hazards%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">三、结构冲突（Structural Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A-2"><span class="toc-number">3.1.</span> <span class="toc-text">解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E8%AE%BF%E9%97%AE%E5%86%85%E5%AD%98"><span class="toc-number">3.1.1.</span> <span class="toc-text">多次访问内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E8%AE%BF%E9%97%AE%E5%AF%84%E5%AD%98%E5%99%A8%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.2.</span> <span class="toc-text">多次访问寄存器文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E5%85%A8%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%8A%9F%E8%83%BD%E5%8D%95%E5%85%83"><span class="toc-number">3.1.3.</span> <span class="toc-text">非全流水线功能单元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E5%B8%B8%E5%B8%B8%E5%AD%98%E5%9C%A8%E7%BB%93%E6%9E%84%E5%86%B2%E7%AA%81"><span class="toc-number">3.1.4.</span> <span class="toc-text">实际机器常常存在结构冲突</span></a></li></ol></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">生成学习的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">概率模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">高斯混合模型（GMM）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">基于神经网络的生成模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%EF%BC%88GANs%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">生成对抗网络（GANs）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%88VAEs%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">变分自编码器（VAEs）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%9C%80%E7%83%AD%E9%97%A8%E7%9A%84%E7%94%9F%E6%88%90%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%8A%80%E6%9C%AF%E7%AE%80%E4%BB%8B"><span class="toc-number">3.</span> <span class="toc-text">当前最热门的生成式学习技术简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">5.</span> <span class="toc-text">结论</span></a></li></ol>
             </div>
         
         <!-- sidebar -->

@@ -19,29 +19,18 @@
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类： 一、数据冲突（Data Hazards）数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。  Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器R1写入数据，而第二条指令需要从R1读取数据。  解决方法：数据前推">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hazards in Pipelined CPU">
-<meta property="og:url" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://noint.top/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类： 一、数据冲突（Data Hazards）数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。  Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器R1写入数据，而第二条指令需要从R1读取数据。  解决方法：数据前推">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo1.png">
-<meta property="og:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo2.png">
-<meta property="article:published_time" content="2023-10-17T02:42:18.000Z">
-<meta property="article:modified_time" content="2024-01-23T14:49:39.759Z">
 <meta property="article:author" content="Noint">
-<meta property="article:tag" content="Computer Science">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noint.top/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/cat.ico">
     
-    <title>Hazards in Pipelined CPU · Noint&#39;s Studio</title>
+    <title>Noint&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -229,10 +218,10 @@
         }
     </script>
     
-        <body class="post-body">
+        <body class="home-body">
     
         <!-- header -->
-        <header class="header header-mobile">
+        <header class="header header-mobile index-header">
     <!-- top read progress line -->
     <div class="header-element">
         <div class="read-progress"></div>
@@ -260,21 +249,10 @@
     </div>
     <!-- toggle banner for post layout -->
     
-        
-            <div class="banner">
-        
-            <div class="blog-title header-element">
-                <a href="/">Noint&#39;s Studio.</a>
-            </div>
-            <div class="post-title header-element">
-                <a href="#" class="post-name">Hazards in Pipelined CPU</a>
-            </div>
-        </div>
-    
 </header>
 
         <!-- fixed footer -->
-        <footer class="footer-fixed">
+        <footer class="footer-fixed index-footer-fixed">
     <!-- back to top button -->
     <div class="footer-fixed-element">
         
@@ -304,7 +282,7 @@
     <!-- 主页  -->
     
         
-    <!-- 404页  -->
+    <!-- 文章页  -->
     
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
@@ -313,8 +291,8 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                Hazards in Pipelined CPU
-            <!-- 404 -->
+                Noint's Studio.
+            <!-- 文章页  -->
             
         </h1>
         <!-- 副标题 -->
@@ -322,69 +300,12 @@
             <!-- 主页副标题  -->
             
                 
-            <!-- 404 -->
+                    it's better to burn out than to fade away
+                
+            <!-- 文章页  -->
             
         </p>
         <!-- 文章页 meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class= post-intro-tags >
-    
-        
-        
-            
-        
-            
-        
-        
-        <span class="post-category" data-categories="Computer Science/Computer Organization and Design"">
-            <i class="fas fa-folder post-category-icon"></i>
-            <span class="post-category-text">
-                Computer Science/Computer Organization and Design
-            </span>
-        </span>
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Computer Science">Computer Science</a>
-    
-</div>
-
-                
-                <!-- 文章字数统计 -->
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">819</span>Reading time: <span class="post-count reading-time">2 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <!-- 撰写日期 -->
-                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2023/10/17</span>
-                    <!-- busuanzi -->
-                    
-                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    
-                    <!-- 文章分享 -->
-                    <span class="share-wrapper">
-                        <span class="iconfont-archer share-icon">&#xe71d;</span>
-                        <span class="share-text">Share</span>
-                        <ul class="share-list">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -514,9 +435,22 @@
 
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
-                <main class="main post-page">
-    <article class="article-entry">
-        <p>在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类：</p>
+                <main class="main index-page">
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2023/10/17/Hazards-in-Pipelined-CPU/">
+                
+                <span class="abstract-title-text">Hazards in Pipelined CPU</span>
+            </a>
+            <div class="abstract-content">
+                <p>在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类：</p>
 <h2 id="一、数据冲突（Data-Hazards）"><a href="#一、数据冲突（Data-Hazards）" class="headerlink" title="一、数据冲突（Data Hazards）"></a>一、数据冲突（Data Hazards）</h2><p>数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。</p>
 <ul>
 <li>Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器<code>R1</code>写入数据，而第二条指令需要从<code>R1</code>读取数据。</li>
@@ -525,104 +459,186 @@
 <p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png" alt="截屏2023-10-17 11.01.05"></p>
 <p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png" alt="截屏2023-10-17 11.03.06"></p>
 <p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png" alt="截屏2023-10-17 11.04.16"></p>
-<h2 id="二、控制冲突（Control-Hazards）"><a href="#二、控制冲突（Control-Hazards）" class="headerlink" title="二、控制冲突（Control Hazards）"></a>二、控制冲突（Control Hazards）</h2><p>控制冲突发生在分支指令处，因为在分支指令的目标地址计算完成之前，后续要执行的指令是不确定的。</p>
-<ul>
-<li><strong>Branch prediction</strong>：通过预测分支的结果，可以尝试解决这种冲突。</li>
-</ul>
-<h3 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h3><p>分支预测（Branch Prediction），分支目标缓冲器（BTB，Branch Target Buffer）等。</p>
-<p>分支预测是解决控制冲突（Control Hazards）中的一种常用技术。当CPU遇到一个分支指令（例如，<code>if</code>，<code>while</code>，<code>for</code>等）时，它需要确定是跳转到新的地址还是继续按照原有的指令顺序执行。分支预测的任务就是预测这个决定，从而允许CPU在不等待分支指令实际执行完成的情况下继续填充和执行流水线。</p>
-<blockquote>
-<p> <strong>常见的分支预测方法：</strong></p>
-<ol>
-<li><strong>静态分支预测</strong>：不依赖于程序的运行时行为。例如，始终预测分支为“Taken”（会跳转）或“Not Taken”（不会跳转）。</li>
-<li><strong>动态分支预测</strong>：<ul>
-<li><strong>一位动态预测器</strong>：使用一位（0或1）来记录最近一次分支的结果。</li>
-<li><strong>两位饱和计数器</strong>：使用两位来更精确地记录分支的历史行为。</li>
-<li><strong>分支目标缓冲区（BTB）</strong>：存储分支指令的目标地址。</li>
-<li><strong>局部和全局预测器</strong>：使用局部和全局的历史信息来进行更准确的预测。</li>
-</ul>
-</li>
-<li><strong>混合分支预测器</strong>：结合多种预测方法，选择最有可能准确的一个。</li>
-</ol>
-</blockquote>
-<h2 id="三、结构冲突（Structural-Hazards）"><a href="#三、结构冲突（Structural-Hazards）" class="headerlink" title="三、结构冲突（Structural Hazards）"></a>三、结构冲突（Structural Hazards）</h2><p>当多个指令需要使用同一硬件资源时，就会发生结构冲突。</p>
-<ul>
-<li>例如，如果有一个指令在访问数据存储器（Data Memory）以加载数据，同时另一个指令也需要访问数据存储器以存储数据，那么就会出现结构冲突。</li>
-</ul>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo1.png" alt="截屏2023-10-17 10.52.40"></p>
-<h3 id="解决方法：-2"><a href="#解决方法：-2" class="headerlink" title="解决方法："></a>解决方法：</h3><p>可以通过硬件复制或时间多路复用等方法来解决。</p>
-<h4 id="多次访问内存"><a href="#多次访问内存" class="headerlink" title="多次访问内存"></a>多次访问内存</h4><ul>
-<li>解决方案包括分割指令和数据内存、使用多个内存端口或指令缓冲器。</li>
-<li>需要通过提高内存带宽（至少5倍）来改善性能。</li>
-</ul>
-<h4 id="多次访问寄存器文件"><a href="#多次访问寄存器文件" class="headerlink" title="多次访问寄存器文件"></a>多次访问寄存器文件</h4><ul>
-<li>双倍增速（Double Bump）：通过增加寄存器文件的访问速度或并行度来解决。</li>
-</ul>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo2.png" alt="截屏2023-10-17 10.55.34"></p>
-<h4 id="非全流水线功能单元"><a href="#非全流水线功能单元" class="headerlink" title="非全流水线功能单元"></a>非全流水线功能单元</h4><ul>
-<li>解决方案包括将功能单元全流水线化。</li>
-<li>使用多个功能单元进行操作。</li>
-</ul>
-<h4 id="实际机器常常存在结构冲突"><a href="#实际机器常常存在结构冲突" class="headerlink" title="实际机器常常存在结构冲突"></a>实际机器常常存在结构冲突</h4><ul>
-<li>在现实世界的机器中，结构冲突是一个普遍存在的问题，需要综合考虑多种策略来进行优化。</li>
-</ul>
-
-    </article>
-    <!-- license -->
+<h2 id="二、控制冲突（Control-Hazards）"><a href="#二、控制冲突（Control-Hazards）" class="headerlink" title="二、控制冲突（Control Hazards）"></a>二、控制冲突（Control Hazards）</h2>
+            </div>
+            <!-- read more -->
+            
+                <div class="abstract-read-more-button">
+                    <a href="/2023/10/17/Hazards-in-Pipelined-CPU/">
+                        <span style="margin-right: 0.2rem;">READ ARTICLE</span>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </div>
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/23">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/17</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
     
-    <!-- paginator -->
-    <ul class="post-paginator">
-        <li class="next">
+        
+        
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2023/11/11/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E7%9A%84%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%88%86%E6%9E%90/" title="不同高级语言内存管理机制的汇编语言分析">
-                    <div class="nextTitle">不同高级语言内存管理机制的汇编语言分析</div>
-                </a>
+        
             
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2023/10/11/hello-world/" title="Hello World">
-                    <div class="prevTitle">Hello World</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- comment -->
+        
+        
+        <span class="post-category" data-categories="Computer Science/Computer Organization and Design"">
+            <i class="fas fa-folder post-category-icon"></i>
+            <span class="post-category-text">
+                Computer Science/Computer Organization and Design
+            </span>
+        </span>
     
-        <div class="post-comment">
-            <!-- 来必力 City 版安装代码 -->
-
-
-            
-
-            
-
-            
-
-            <!-- utteranc评论 -->
-
-
-            <!-- partial('_partial/comment/changyan') -->
-            <!--PC版-->
-
-
-            
-            
-
-            
-
-        </div>
     
-    <!-- timeliness note -->
-    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+        <a class="post-tag" href="javascript:void(0);" data-tags="Computer Science">Computer Science</a>
     
-    <!-- Mathjax -->
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2023/10/11/hello-world/">
+                
+                <span class="abstract-title-text">Hello World</span>
+            </a>
+            <div class="abstract-content">
+                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+            </div>
+            <!-- read more -->
+            
+                <div class="abstract-read-more-button">
+                    <a href="/2023/10/11/hello-world/">
+                        <span style="margin-right: 0.2rem;">READ ARTICLE</span>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </div>
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/23">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/11</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+    <!-- paginator  -->
+    
+        <nav class="page-nav">
+            <a class="extend prev" rel="prev" href="/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+        </nav>
     
 </main>
 
                 <!-- profile -->
+                
+                    <div class="profile profile-sticky">
+    <img class="profile-avatar" alt="avatar" src= /avatar/CAT.jpg />
+    <div class="profile-name">Noint</div>
+    
+        <div class="profile-signature">
+            witness me
+        </div>
+    
+    
+        <div class="profile-social">
+            
+    
+        
+            
+                <a href="mailto:nointiiii@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/iiiinoint" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    
+    
+        <div class="profile-link-item">
+            <a href="/about" class="about-me">
+                
+                ABOUT ME
+            </a>
+        </div>
+    
+    
+    
+</div>
+
                 
             </div>
             <footer class="footer footer-unloaded">
@@ -714,23 +730,6 @@
 
         </div>
         <!-- toc -->
-        
-            <div class="toc-wrapper toc-wrapper-loding" style=
-
-
-
-
-
-
-
-    top:50vh;
-
->
-                <div class="toc-catalog">
-                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-                </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E5%86%B2%E7%AA%81%EF%BC%88Data-Hazards%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、数据冲突（Data Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8E%A7%E5%88%B6%E5%86%B2%E7%AA%81%EF%BC%88Control-Hazards%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、控制冲突（Control Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A-1"><span class="toc-number">2.1.</span> <span class="toc-text">解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BB%93%E6%9E%84%E5%86%B2%E7%AA%81%EF%BC%88Structural-Hazards%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">三、结构冲突（Structural Hazards）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A-2"><span class="toc-number">3.1.</span> <span class="toc-text">解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E8%AE%BF%E9%97%AE%E5%86%85%E5%AD%98"><span class="toc-number">3.1.1.</span> <span class="toc-text">多次访问内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E8%AE%BF%E9%97%AE%E5%AF%84%E5%AD%98%E5%99%A8%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.2.</span> <span class="toc-text">多次访问寄存器文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E5%85%A8%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%8A%9F%E8%83%BD%E5%8D%95%E5%85%83"><span class="toc-number">3.1.3.</span> <span class="toc-text">非全流水线功能单元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%9C%BA%E5%99%A8%E5%B8%B8%E5%B8%B8%E5%AD%98%E5%9C%A8%E7%BB%93%E6%9E%84%E5%86%B2%E7%AA%81"><span class="toc-number">3.1.4.</span> <span class="toc-text">实际机器常常存在结构冲突</span></a></li></ol></li></ol></li></ol>
-            </div>
         
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -1052,16 +1051,7 @@
         
         <!-- async load share.js -->
         
-            <script src="/scripts/share.js?v=20211217" async></script>
-        
         <!-- mermaid -->
-        
-            <script src='https://cdn.jsdelivr.net/npm/mermaid@8.11.0/dist/mermaid.min.js'></script>
-            <script>
-                if (window.mermaid) {
-                    mermaid.initialize({theme: 'dark'});
-                }
-            </script>
         
     </body>
 </html>

@@ -659,6 +659,131 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2023/12/05/Introduction-to-Generative-Learning/">
+                
+                <span class="abstract-title-text">Introduction to Generative Learning</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="生成学习的基本概念"><a href="#生成学习的基本概念" class="headerlink" title="生成学习的基本概念"></a>生成学习的基本概念</h2><p>生成学习的核心思想是学习样本数据的概率分布。一旦学习到这种分布，就可以生成新的、与原始数据类似的样本。生成模型通常包括基于概率的模型，如高斯混合模型（Gaussian Mixture Model, GMM），和近年来流行的基于神经网络的模型，如生成对抗网络（Generative Adversarial Networks, GANs）和变分自编码器（Variational Autoencoders, VAEs）。</p>
+<h3 id="概率模型"><a href="#概率模型" class="headerlink" title="概率模型"></a>概率模型</h3><p>生成学习的一个关键方面是使用概率模型来描述数据。例如，假设我们有一个数据集${x^{(1)}, x^{(2)}, …, x^{(m)}}$，我们希望学习这个数据集的概率分布$p(x)$。</p>
+<p>对于简单的场景，可以考虑使用如高斯分布的参数化方法：</p>
+<p>$$ p(x; \mu, \sigma^2) &#x3D; \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$</p>
+<p>其中，$\mu$是均值，$\sigma^2$是方差。</p>
+<h3 id="高斯混合模型（GMM）"><a href="#高斯混合模型（GMM）" class="headerlink" title="高斯混合模型（GMM）"></a>高斯混合模型（GMM）</h3><p>高斯混合模型是一种常用的生成模型，它假设数据是由多个高斯分布混合而成的。其概率密度函数为：</p>
+<p>$$ p(x) &#x3D; \sum_{k&#x3D;1}^K \phi_k \mathcal{N}(x; \mu_k, \Sigma_k) $$</p>
+            </div>
+            <!-- read more -->
+            
+                <div class="abstract-read-more-button">
+                    <a href="/2023/12/05/Introduction-to-Generative-Learning/">
+                        <span style="margin-right: 0.2rem;">READ ARTICLE</span>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </div>
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/27">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/12/05</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+        
+        
+            
+        
+        
+        <span class="post-category" data-categories="Machine Learning"">
+            <i class="fas fa-folder post-category-icon"></i>
+            <span class="post-category-text">
+                Machine Learning
+            </span>
+        </span>
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Machine Learning">Machine Learning</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2023/12/05/Introduction-to-Deep-Learning/">
+                
+                <span class="abstract-title-text">Introduction to Deep Learning</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="深度学习的基本概念"><a href="#深度学习的基本概念" class="headerlink" title="深度学习的基本概念"></a>深度学习的基本概念</h2><p>深度学习的核心是深度神经网络（DNNs），它们是由多层神经元组成的网络结构。每一层由多个神经元组成，这些神经元接收来自前一层的输入，并产生输出到下一层。最简单的神经网络是感知器（Perceptron），它是一个单层的网络结构。</p>
+<h3 id="神经元（Neuron）"><a href="#神经元（Neuron）" class="headerlink" title="神经元（Neuron）"></a>神经元（Neuron）</h3><p>神经元是构成神经网络的基本单元。每个神经元接收来自其他神经元的输入信号，然后处理这些信号，并产生输出。数学上，一个神经元的操作可以表示为：</p>
+<p>$$ f(x) &#x3D; \phi\left(\sum_{i&#x3D;1}^n w_i x_i + b\right) $$</p>
+<p>其中，$x_1, x_2, …, x_n$ 是输入，$w_1, w_2, …, w_n$ 是权重，$b$ 是偏置项，$\phi$ 是激活函数。</p>
+<h3 id="激活函数（Activation-Function）"><a href="#激活函数（Activation-Function）" class="headerlink" title="激活函数（Activation Function）"></a>激活函数（Activation Function）</h3><p>激活函数是用来加入非线性因素的函数，使得神经网络可以学习更复杂的模式。常见的激活函数有Sigmoid函数、ReLU函数等。</p>
+<ul>
+<li>Sigmoid函数：$\sigma(x) &#x3D; \frac{1}{1 + e^{-x}}$</li>
+<li>ReLU函数：$ReLU(x) &#x3D; max(0, x)$</li>
+</ul>
+<h3 id="损失函数（Loss-Function）"><a href="#损失函数（Loss-Function）" class="headerlink" title="损失函数（Loss Function）"></a>损失函数（Loss Function）</h3>
+            </div>
+            <!-- read more -->
+            
+                <div class="abstract-read-more-button">
+                    <a href="/2023/12/05/Introduction-to-Deep-Learning/">
+                        <span style="margin-right: 0.2rem;">READ ARTICLE</span>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </div>
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/27">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/12/05</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+        
+        
+            
+        
+        
+        <span class="post-category" data-categories="Machine Learning"">
+            <i class="fas fa-folder post-category-icon"></i>
+            <span class="post-category-text">
+                Machine Learning
+            </span>
+        </span>
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Machine Learning">Machine Learning</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2023/12/03/Classification/">
                 
                 <span class="abstract-title-text">Classification</span>
@@ -1012,115 +1137,11 @@
         </article>
         <div class="index-post-divider"></div>
     
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2023/10/17/Hazards-in-Pipelined-CPU/">
-                
-                <span class="abstract-title-text">Hazards in Pipelined CPU</span>
-            </a>
-            <div class="abstract-content">
-                <p>在流水线CPU中，”hazards”（或称为冲突）是一种情况，它阻碍了流水线的连续和高效执行。这些冲突通常分为三类：</p>
-<h2 id="一、数据冲突（Data-Hazards）"><a href="#一、数据冲突（Data-Hazards）" class="headerlink" title="一、数据冲突（Data Hazards）"></a>一、数据冲突（Data Hazards）</h2><p>数据冲突发生在一个指令需要使用上一个或几个指令尚未完成计算的数据结果。</p>
-<ul>
-<li>Read After Write (RAW)：这是最常见的数据冲突类型。例如，第一条指令正在向寄存器<code>R1</code>写入数据，而第二条指令需要从<code>R1</code>读取数据。</li>
-</ul>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>数据前推（Data Forwarding）或者暂停（Stalling）。</p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo3.png" alt="截屏2023-10-17 11.01.05"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo4.png" alt="截屏2023-10-17 11.03.06"></p>
-<p><img src="/2023/10/17/Hazards-in-Pipelined-CPU/photo5.png" alt="截屏2023-10-17 11.04.16"></p>
-<h2 id="二、控制冲突（Control-Hazards）"><a href="#二、控制冲突（Control-Hazards）" class="headerlink" title="二、控制冲突（Control Hazards）"></a>二、控制冲突（Control Hazards）</h2>
-            </div>
-            <!-- read more -->
-            
-                <div class="abstract-read-more-button">
-                    <a href="/2023/10/17/Hazards-in-Pipelined-CPU/">
-                        <span style="margin-right: 0.2rem;">READ ARTICLE</span>
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </div>
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/23">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/17</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-        
-        
-            
-        
-            
-        
-        
-        <span class="post-category" data-categories="Computer Science/Computer Organization and Design"">
-            <i class="fas fa-folder post-category-icon"></i>
-            <span class="post-category-text">
-                Computer Science/Computer Organization and Design
-            </span>
-        </span>
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Computer Science">Computer Science</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2023/10/11/hello-world/">
-                
-                <span class="abstract-title-text">Hello World</span>
-            </a>
-            <div class="abstract-content">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-            </div>
-            <!-- read more -->
-            
-                <div class="abstract-read-more-button">
-                    <a href="/2023/10/11/hello-world/">
-                        <span style="margin-right: 0.2rem;">READ ARTICLE</span>
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                </div>
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/23">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/10/11</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
     <!-- paginator  -->
+    
+        <nav class="page-nav">
+            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">NEXT &gt;</a>
+        </nav>
     
 </main>
 
@@ -1363,7 +1384,33 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1418,7 +1465,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 10
+        Total : 12
         </div>
         <!-- search  -->
         
@@ -1453,6 +1500,18 @@
             <div class="archive-year"> 2023 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/05</span>
+            <a class="archive-post-title" href="/2023/12/05/Introduction-to-Generative-Learning/">Introduction to Generative Learning</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/05</span>
+            <a class="archive-post-title" href="/2023/12/05/Introduction-to-Deep-Learning/">Introduction to Deep Learning</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">12/03</span>
