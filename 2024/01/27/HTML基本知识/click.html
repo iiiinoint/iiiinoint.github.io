@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript示例</title>
+</head>
+<body>
+    <button id="clickMe">点击我</button>
+    <p id="displayText">欢迎来到我的网站</p>
+
+    <script>
+        document.getElementById("clickMe").onclick = function() {
+            document.getElementById("displayText").innerHTML = "按钮被点击！";
+        };
+    </script>
+</body>
+</html>
